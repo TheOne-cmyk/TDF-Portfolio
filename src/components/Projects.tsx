@@ -9,7 +9,7 @@ const Projects = () => {
       description: 'Application web pour la gestion efficace des petites et moyennes entreprises locales.',
       image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=500',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'HTML', 'PostgreSQL'],
-      githubUrl: 'https://github.com/TheOne-cmyk/BizTrack-237',
+      githubUrl: 'https://github.com/TheOne-cmyk',
       liveUrl: 'https://biztrack237.vercel.app/',
       featured: true
     },
@@ -19,7 +19,7 @@ const Projects = () => {
       description: 'Plateforme numérique pour la mise en location et la gestion de biens immobiliers.',
       image: 'https://images.pexels.com/photos/3935336/pexels-photo-3935336.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS'],
-      githubUrl: 'https://github.com/TheOne-cmyk/RentHub',
+      githubUrl: 'https://github.com/TheOne-cmyk',
       liveUrl: 'https://renthub-ten.vercel.app/',
       featured: true
     },
@@ -29,7 +29,7 @@ const Projects = () => {
       description: 'Plateforme de Collaboration pour Développeurs.',
       image: 'https://images.pexels.com/photos/1181279/pexels-photo-1181279.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS'],
-      githubUrl: 'https://github.com/TheOne-cmyk/Devsynch',
+      githubUrl: 'https://github.com/TheOne-cmyk',
       liveUrl: 'https://devsynch.vercel.app/',
       featured: false
     },
