@@ -7,7 +7,7 @@ const Experience = () => {
     company: 'Faya Hotel',
     location: 'Douala, Cameroun',
     period: 'Juillet 2024 - Août 2024',
-    duration: '2 mois',
+    duration: 'Deux mois',
     description: 'Stage de formation pratique dans le domaine de l\'informatique et du développement d\'applications Web.',
     tasks: [
       'Conception et Réalisation d\'une application de gestion des équipements techniques',

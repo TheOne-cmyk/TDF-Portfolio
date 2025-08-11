@@ -300,7 +300,7 @@ const Projects = () => {
               Vous avez aimé mes projets ? Consultez mon profil GitHub pour découvrir d'autres réalisations !
             </p>
             <a
-              href="https://github.com"
+              href="https://github.com/TheOne-cmyk"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200"
