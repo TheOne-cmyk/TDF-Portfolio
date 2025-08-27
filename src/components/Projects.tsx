@@ -106,16 +106,16 @@ const Projects = () => {
   }, [isMobile]);
 
   return (
-    <section id="projets" className="py-20 bg-white">
+    <section id="projets" className="py-20 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="animate-on-scroll opacity-0">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-gray-100">
               Mes Projets
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
               Découvrez une sélection de mes projets les plus représentatifs.
             </p>
           </div>
@@ -137,7 +137,7 @@ const Projects = () => {
               >
                 <div className={`group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 h-full ${
                   project.featured ? 'border-2 border-blue-200' : ''
-                }`}>
+                } dark:bg-gray-900 dark:border-gray-800`}>
                   {/* Project content... */}
                   {project.featured && (
                     <div className="absolute top-4 left-4 z-10">
@@ -158,7 +158,7 @@ const Projects = () => {
                     <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <a
                         href={project.githubUrl}
-                        className="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                        className="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors duration-200 dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-gray-800"
                       >
                         <Github size={20} />
                       </a>
@@ -172,10 +172,10 @@ const Projects = () => {
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200 dark:text-gray-100">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                    <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3 dark:text-gray-300">
                       {project.description}
                     </p>
 
@@ -183,17 +183,17 @@ const Projects = () => {
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-100 hover:text-blue-600 transition-colors duration-200"
+                          className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/20 hover:text-blue-600 transition-colors duration-200 dark:bg-gray-800 dark:text-gray-200"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
                       <a
                         href={project.githubUrl}
-                        className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                        className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 dark:text-gray-300"
                       >
                         <Github size={18} className="mr-2" />
                         Code source
@@ -219,7 +219,7 @@ const Projects = () => {
                 key={project.id}
                 className={`group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 ${
                   project.featured ? 'border-2 border-blue-200' : ''
-                }`}
+                } dark:bg-gray-900 dark:border-gray-800`}
               >
                 {/* Desktop project content... */}
                 {project.featured && (
@@ -241,7 +241,7 @@ const Projects = () => {
                   <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <a
                       href={project.githubUrl}
-                      className="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                      className="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors duration-200 dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-gray-800"
                     >
                       <Github size={20} />
                     </a>
@@ -255,10 +255,10 @@ const Projects = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200 dark:text-gray-100">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-4 leading-relaxed dark:text-gray-300">
                     {project.description}
                   </p>
 
@@ -266,17 +266,17 @@ const Projects = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-100 hover:text-blue-600 transition-colors duration-200"
+                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/20 hover:text-blue-600 transition-colors duration-200 dark:bg-gray-800 dark:text-gray-200"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
                     <a
                       href={project.githubUrl}
-                      className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                      className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 dark:text-gray-300"
                     >
                       <Github size={18} className="mr-2" />
                       Code source
@@ -296,14 +296,14 @@ const Projects = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 dark:text-gray-300">
               Vous avez aimé mes projets ? Consultez mon profil GitHub pour découvrir d'autres réalisations !
             </p>
             <a
               href="https://github.com/TheOne-cmyk"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200"
+              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg:white/90"
             >
               <Github className="mr-2 w-5 h-5" />
               Voir tous mes projets sur GitHub

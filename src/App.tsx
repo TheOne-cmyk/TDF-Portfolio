@@ -7,6 +7,8 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Services from './components/Services';
+import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
@@ -53,17 +55,19 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-950 dark:text-gray-100">
       <Header />
       <main>
         <Hero />
         <About />
         <Skills />
+        <Services />
         <Education />
         <Experience />
         <Projects />
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 }

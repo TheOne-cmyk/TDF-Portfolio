@@ -177,32 +177,32 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="competences" className="py-20 bg-gradient-to-b from-[#f8faff] to-white">
+    <section id="competences" className="py-20 bg-gradient-to-b from-[#f8faff] to-white dark:from-gray-900 dark:to-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={containerRef} className="opacity-0">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 ">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-gray-100 ">
               Compétences Techniques
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4 rounded-full"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg dark:text-gray-300">
               Technologies maîtrisées et outils modernes pour des solutions performantes
             </p>
           </div>
 
           {/* Compétences Techniques - Carousel */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center ">Langages & Frameworks</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center dark:text-gray-100 ">Langages & Frameworks</h3>
             
             <div 
-              className="relative bg-white rounded-3xl shadow-xl p-8 border border-gray-100"
+              className="relative bg-white rounded-3xl shadow-xl p-8 border border-gray-100 dark:bg-gray-900 dark:border-gray-800"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
               {/* Gradient overlay */}
-              <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none dark:from-gray-900"></div>
+              <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none dark:from-gray-900"></div>
 
               {/* Carousel Container */}
               <div className="relative overflow-hidden py-6 px-4"> {/* Ajout de padding vertical */}
@@ -220,11 +220,11 @@ const Skills = () => {
           transition-all duration-300 ease-in-out
           flex flex-col items-center justify-center
           min-h-[200px] /* Hauteur légèrement augmentée */
-          border border-gray-100
+          border border-gray-100 dark:border-gray-800
           shadow-lg
           hover:scale-[1.03] /* Animation plus subtile */
           border-blue-200
-          bg-gradient-to-b from-white to-blue-50
+          bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800
           relative
           overflow-hidden
           group
@@ -250,7 +250,7 @@ const Skills = () => {
           {skill.icon}
         </div>
         
-        <h4 className="font-semibold text-lg text-gray-900 group-hover:text-${skill.color.replace('bg-', '')} transition-colors duration-300 z-10">
+        <h4 className="font-semibold text-lg text-gray-900 transition-colors duration-300 z-10 dark:text-gray-100">
           {skill.name}
         </h4>
       </div>
@@ -267,7 +267,7 @@ const Skills = () => {
                   hover:bg-blue-600 hover:text-white 
                   transition-all duration-300 z-20
                   flex items-center justify-center
-                  ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}
+                  ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'} dark:bg-gray-900
                 `}
                 disabled={isAnimating || currentSlide === 0}
               >
@@ -281,7 +281,7 @@ const Skills = () => {
                   hover:bg-blue-600 hover:text-white 
                   transition-all duration-300 z-20
                   flex items-center justify-center
-                  ${currentSlide === totalSlides - 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}
+                  ${currentSlide === totalSlides - 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'} dark:bg-gray-900
                 `}
                 disabled={isAnimating || currentSlide === totalSlides - 1}
               >
@@ -304,7 +304,7 @@ const Skills = () => {
                     }}
                     className={`
                       h-2 rounded-full transition-all duration-300
-                      ${index === currentSlide ? 'bg-blue-600 w-8' : 'bg-gray-200 w-4 hover:bg-gray-400'}
+                      ${index === currentSlide ? 'bg-blue-600 w-8' : 'bg-gray-200 w-4 hover:bg-gray-400'} dark:bg-gray-700
                     `}
                     disabled={isAnimating}
                   />
@@ -315,23 +315,23 @@ const Skills = () => {
 
           {/* Autres Compétences */}
           <div className="mt-24">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center ">Outils & Logiciels</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center dark:text-gray-100 ">Outils & Logiciels</h3>
             
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {otherSkills.map((category, index) => (
                 <div 
                   key={index} 
-                  className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                  className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:bg-gray-900 dark:border-gray-800"
                 >
-                  <div className="flex items-center mb-4 pb-2 border-b border-gray-100">
+                  <div className="flex items-center mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">
                     {category.icon}
-                    <h4 className="text-lg font-semibold text-gray-800">{category.category}</h4>
+                    <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{category.category}</h4>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="inline-flex items-center bg-gray-50 text-gray-800 px-3 py-2 rounded-xl text-sm hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border border-gray-200 hover:border-blue-200"
+                        className="inline-flex items-center bg-gray-50 text-gray-800 px-3 py-2 rounded-xl text-sm hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border border-gray-200 hover:border-blue-200 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700"
                       >
                         <span className="mr-2">{skill.icon}</span>
                         {skill.name}
