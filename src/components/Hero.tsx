@@ -1,12 +1,14 @@
-import React from 'react';
-import { ArrowRight, Download, Mail, Linkedin, Github, Twitter } from 'lucide-react';
+import { ArrowRight, Eye, Mail, Linkedin, Github, Twitter } from 'lucide-react';
 import { useTypingEffect } from '../hooks/useTypingEffect';
+import { useTranslation } from '../contexts/LanguageContext';
 
-const Hero = () => {
+git const Hero = () => {
+  const { t } = useTranslation();
+  
   const typingText = useTypingEffect([
-    "Passionné par le développement web",
-    "Créateur de solutions innovantes",
-    "Expert en technologies modernes"
+    t('hero.typing1'),
+    t('hero.typing2'),
+    t('hero.typing3')
   ], 100, 2000);
 
   return (
@@ -22,7 +24,7 @@ const Hero = () => {
           <div className="w-full lg:w-7/12 xl:w-8/12 text-center lg:text-left">
             <div className="mb-4 lg:mb-6">
               <div className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 rounded-full text-xs font-medium mb-3 lg:mb-4">
-                Développeur Full-Stack
+                {t('hero.title')}
               </div>
               
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-2 lg:mb-3 dark:text-gray-100">
@@ -40,8 +42,7 @@ const Hero = () => {
               
               {/* Description concise */}
               <p className="text-gray-600 text-sm lg:text-base max-w-2xl mx-auto lg:mx-0 mb-4 lg:mb-6 dark:text-gray-300">
-                Je conçois et développe des applications web modernes et performantes 
-                avec une attention particulière pour l'expérience utilisateur.
+                {t('hero.description')}
               </p>
             </div>
 
@@ -52,11 +53,11 @@ const Hero = () => {
                 <div className="text-xs text-gray-600 dark:text-gray-300">Ans d'expérience</div>
               </div>
               <div className="bg-white p-2 lg:p-3 rounded-lg shadow-sm border border-blue-100 flex flex-col items-center min-w-[80px] lg:min-w-[90px] dark:bg-gray-900 dark:border-gray-800">
-                <div className="text-xl lg:text-2xl font-bold text-blue-600 mb-1">10+</div>
+                <div className="text-xl lg:text-2xl font-bold text-blue-600 mb-1">8+</div>
                 <div className="text-xs text-gray-600 dark:text-gray-300">Projets réalisés</div>
               </div>
               <div className="bg-white p-2 lg:p-3 rounded-lg shadow-sm border border-blue-100 flex flex-col items-center min-w-[80px] lg:min-w-[90px] dark:bg-gray-900 dark:border-gray-800">
-                <div className="text-xl lg:text-2xl font-bold text-blue-600 mb-1">100%</div>
+                <div className="text-xl lg:text-2xl font-bold text-blue-600 mb-1">85%</div>
                 <div className="text-xs text-gray-600 dark:text-gray-300">Satisfaction</div>
               </div>
             </div>
@@ -67,15 +68,15 @@ const Hero = () => {
                 href="#projets"
                 className="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-200 group shadow-md hover:shadow-lg"
               >
-                Voir mes projets
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                {t('hero.viewProjects')}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="#contact"
                 className="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 <Mail className="mr-2 w-5 h-5" />
-                Me contacter
+                {t('hero.contactMe')}
               </a>
               <a
                 href="/cv.pdf"
@@ -83,8 +84,8 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Download className="mr-2 w-5 h-5" />
-                Voir le CV
+                <Eye className="mr-2 w-5 h-5" />
+                {t('hero.viewCV')}
               </a>
             </div>
           </div>
@@ -96,18 +97,18 @@ const Hero = () => {
               <div className="bg-white rounded-xl p-5 shadow-lg border border-blue-100 transform transition-all duration-500 hover:shadow-md z-20 relative dark:bg-gray-900 dark:border-gray-800">
                 <div className="flex items-center mb-4">
                   <div className="w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-md">
-                    <span className="text-lg lg:text-xl font-bold text-white">TD</span>
+                    <span className="text-lg lg:text-xl font-bold text-white">  &lt;/&gt; </span>
                   </div>
                   <div className="ml-3">
                     <h2 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-gray-100">TDFW</h2>
-                    <p className="text-blue-600 text-xs lg:text-sm">Full-Stack Developer</p>
+                    <p className="text-blue-600 text-xs lg:text-sm">{t('hero.fullStackDeveloper')}</p>
                   </div>
                 </div>
                 
                 <div className="h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent my-4"></div>
                 
                 <div className="mb-4">
-                  <h3 className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide dark:text-gray-400">Expertise</h3>
+                  <h3 className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide dark:text-gray-400">{t('hero.expertise')}</h3>
                   <div className="flex flex-wrap gap-1">
                     <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 text-xs font-medium rounded-full">React</span>
                     <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 text-xs font-medium rounded-full">PHP</span>
@@ -118,7 +119,7 @@ const Hero = () => {
                 
                 <div className="flex items-center mb-4">
                   <div className="w-2 h-2 lg:w-2 lg:h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                  <p className="text-xs text-gray-600 dark:text-gray-300">Disponible pour nouveaux projets</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-300">{t('hero.availableForNewProjects')}</p>
                 </div>
                 
                 {/* Icônes des réseaux sociaux en bas de la carte */}
@@ -142,6 +143,9 @@ const Hero = () => {
               {/* Code flottant décoratif */}
               <div className="absolute -bottom-5 right-2 lg:-bottom-6 lg:right-3 bg-white p-1 lg:p-2 rounded border border-blue-100 transform rotate-3 z-30 shadow-sm dark:bg-gray-900 dark:border-gray-800">
                 <div className="text-[10px] text-gray-700 font-mono dark:text-gray-300">
+                  <div className="text-blue-600">{t('hero.function')}</div>
+                  <div className="ml-3"><span className="text-purple-600">{t('hero.create')}</span><span className="text-blue-600">{t('hero.project')}</span>() {'{'}</div>
+                  <div className="ml-6"><span className="text-green-600">{t('hero.return')}</span> <span className="text-yellow-600">{t('hero.success')}</span>;</div>
                   <div className="text-blue-600">function</div>
                   <div className="ml-3"><span className="text-purple-600">create</span><span className="text-blue-600">Project</span>() {'{'}</div>
                   <div className="ml-6"><span className="text-green-600">return</span> <span className="text-yellow-600">"success"</span>;</div>

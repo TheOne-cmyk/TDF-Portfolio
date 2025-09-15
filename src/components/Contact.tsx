@@ -1,8 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useTranslation } from '../contexts/LanguageContext';
 
 const Contact = () => {
+  const { language } = useTranslation();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -50,22 +53,22 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
+      label: language === 'fr' ? 'Email' : 'Email',
       value: 'tsobgouwarren@gmail.com',
       href: 'mailto:tsobgouwarren@gmail.com',
       color: 'text-blue-600'
     },
     {
       icon: Phone,
-      label: 'Téléphone',
+      label: language === 'fr' ? 'Téléphone' : 'Phone',
       value: '+237 694 983 862',
       href: 'tel:+237694983862',
       color: 'text-green-600'
     },
     {
       icon: MapPin,
-      label: 'Localisation',
-      value: 'Douala, Cameroun',
+      label: language === 'fr' ? 'Localisation' : 'Location',
+      value: language === 'fr' ? 'Douala, Cameroun' : 'Douala, Cameroon',
       href: '#',
       color: 'text-red-600'
     }
@@ -102,15 +105,15 @@ const Contact = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-gray-100">Message envoyé avec succès !</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-gray-100">{language === 'fr' ? 'Message envoyé avec succès !' : 'Message sent successfully!'}</h2>
             <p className="text-gray-600 mb-8 dark:text-gray-300">
-              Merci pour votre message. Je vous répondrai dans les plus brefs délais.
+              {language === 'fr' ? 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.' : 'Thank you for your message. I will get back to you as soon as possible.'}
             </p>
             <button
               onClick={() => setIsSubmitted(false)}
               className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
             >
-              Envoyer un nouveau message
+              {language === 'fr' ? 'Envoyer un nouveau message' : 'Send a new message'}
             </button>
           </div>
         </div>
@@ -125,11 +128,11 @@ const Contact = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-gray-100">
-              Prenons Contact
+              {language === 'fr' ? 'Prenons Contact' : 'Contact Me'}
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
             <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
-              Une idée de projet ? Une opportunité professionnelle ? N'hésitez pas à me contacter. Je réponds généralement sous 24h.
+              {language === 'fr' ? "Une idée de projet ? Une opportunité professionnelle ? N'hésitez pas à me contacter. Je réponds généralement sous 24h." : 'A project idea? A professional opportunity? Feel free to contact me. I usually reply within 24h.'}
             </p>
           </div>
 
@@ -137,7 +140,7 @@ const Contact = () => {
             {/* Informations de contact */}
             <div className="lg:col-span-1">
               <div className="bg-white p-8 rounded-2xl shadow-lg dark:bg-gray-900">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-100">Mes Coordonnées</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-100">{language === 'fr' ? 'Mes Coordonnées' : 'My Contact Info'}</h3>
                 
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => {
@@ -163,7 +166,7 @@ const Contact = () => {
 
                 {/* Réseaux sociaux */}
                 <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
-                  <h4 className="font-semibold text-gray-900 mb-4 dark:text-gray-100">Suivez-moi</h4>
+                  <h4 className="font-semibold text-gray-900 mb-4 dark:text-gray-100">{language === 'fr' ? 'Suivez-moi' : 'Follow me'}</h4>
                   <div className="flex space-x-4">
                     {socialLinks.map((social, index) => {
                       const IconComponent = social.icon;
@@ -185,12 +188,12 @@ const Contact = () => {
 
                 {/* Disponibilité */}
                 <div className="mt-8 p-4 bg-blue-50 rounded-lg dark:bg-blue-900/20">
-                  <h4 className="font-semibold text-blue-900 mb-2 dark:text-blue-200">Disponibilité</h4>
+                  <h4 className="font-semibold text-blue-900 mb-2 dark:text-blue-200">{language === 'fr' ? 'Disponibilité' : 'Availability'}</h4>
                   <p className="text-blue-700 text-sm dark:text-blue-300">
-                    🟢 Disponible pour de nouveaux projets
+                    {language === 'fr' ? '🟢 Disponible pour de nouveaux projets' : '🟢 Available for new projects'}
                   </p>
                   <p className="text-blue-600 text-sm mt-1 dark:text-blue-400">
-                    Temps de réponse moyen : 24h
+                    {language === 'fr' ? 'Temps de réponse moyen : 24h' : 'Average response time: 24h'}
                   </p>
                 </div>
               </div>
@@ -199,7 +202,7 @@ const Contact = () => {
             {/* Formulaire de contact */}
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-2xl shadow-lg dark:bg-gray-900">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-100">Envoyez-moi un message</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-100">{language === 'fr' ? 'Envoyez-moi un message' : 'Send me a message'}</h3>
                 
                 {submitError && (
                   <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 dark:bg-red-900/20 dark:border-red-700">
@@ -216,7 +219,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
-                        Nom complet *
+                        {language === 'fr' ? 'Nom complet *' : 'Full name *'}
                       </label>
                       <input
                         type="text"
@@ -226,12 +229,12 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
-                        placeholder="Votre nom complet"
+                        placeholder={language === 'fr' ? 'Votre nom complet' : 'Your full name'}
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
-                        Email *
+                        {language === 'fr' ? 'Email *' : 'Email *'}
                       </label>
                       <input
                         type="email"
@@ -241,14 +244,14 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
-                        placeholder="votre.email@exemple.com"
+                        placeholder={language === 'fr' ? 'votre.email@exemple.com' : 'your.email@example.com'}
                       />
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
-                      Sujet *
+                      {language === 'fr' ? 'Sujet *' : 'Subject *'}
                     </label>
                     <input
                       type="text"
@@ -258,13 +261,13 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
-                      placeholder="Objet de votre message"
+                      placeholder={language === 'fr' ? 'Objet de votre message' : 'Subject of your message'}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
-                      Message *
+                      {language === 'fr' ? 'Message *' : 'Message *'}
                     </label>
                     <textarea
                       id="message"
@@ -274,7 +277,7 @@ const Contact = () => {
                       required
                       rows={6}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
-                      placeholder="Décrivez votre projet ou votre demande..."
+                      placeholder={language === 'fr' ? 'Décrivez votre projet ou votre demande...' : 'Describe your project or request...'}
                     ></textarea>
                   </div>
 
@@ -286,12 +289,12 @@ const Contact = () => {
                     {isSubmitting ? (
                       <>
                         <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                        Envoi en cours...
+                        {language === 'fr' ? 'Envoi en cours...' : 'Sending...'}
                       </>
                     ) : (
                       <>
                         <Send className="mr-2 w-5 h-5" />
-                        Envoyer le message
+                        {language === 'fr' ? 'Envoyer le message' : 'Send message'}
                       </>
                     )}
                   </button>
@@ -299,7 +302,7 @@ const Contact = () => {
 
                 <div className="mt-6 p-4 bg-gray-50 rounded-lg dark:bg-gray-900 dark:border dark:border-gray-800">
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    <strong>Note :</strong> Vous pouvez aussi me contacter directement par email ou téléphone pour une réponse plus rapide.
+                    <strong>{language === 'fr' ? 'Note :' : 'Note:'}</strong> {language === 'fr' ? 'Vous pouvez aussi me contacter directement par email ou téléphone pour une réponse plus rapide.' : 'You can also contact me directly by email or phone for a faster response.'}
                   </p>
                 </div>
               </div>

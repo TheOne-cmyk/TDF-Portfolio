@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Info } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Sun, Moon, Info, Languages } from 'lucide-react';
+import { useTranslation } from '../contexts/LanguageContext';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>(() => (typeof window !== 'undefined' && localStorage.getItem('theme') === 'dark') ? 'dark' : 'light');
   const [showNotice, setShowNotice] = useState(false);
+  const { t, language, setLanguage } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,17 +42,26 @@ const Header = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // Sauvegarder la langue préférée
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
+
   const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  const toggleLanguage = () => {
+    const newLang = language === 'fr' ? 'en' : 'fr';
+    setLanguage(newLang);
+  };
 
   const navItems = [
-    { href: '#accueil', label: 'Accueil' },
-    { href: '#apropos', label: 'À Propos' },
-    { href: '#competences', label: 'Compétences' },
-    { href: '#services', label: 'Services' },
-    { href: '#formations', label: 'Formations' },
-    { href: '#experience', label: 'Expérience' },
-    { href: '#projets', label: 'Projets' },
-    { href: '#contact', label: 'Contact' }
+    // { href: '#home', label: t('header.home') }, // Masqué volontairement
+    { href: '#apropos', label: t('header.about') },
+    { href: '#competences', label: t('header.skills') },
+    { href: '#services', label: t('header.services') },
+    { href: '#formations', label: language === 'fr' ? t('header.education') : t('header.education') },
+    { href: '#experience', label: t('header.experience') },
+    { href: '#projets', label: t('header.projects') },
+    { href: '#contact', label: t('header.contact') },
   ];
 
   return (
@@ -72,6 +83,9 @@ const Header = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-4">
               <div className="ml-10 flex items-baseline space-x-8">
+                {/* <a href="#home" className="px-3 py-2 text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  {t('header.home')}
+                </a> */}
                 {navItems.map((item, index) => (
                   <a
                     key={index}
@@ -83,13 +97,23 @@ const Header = () => {
                   </a>
                 ))}
               </div>
-              <button onClick={toggleTheme} aria-label="Basculer le thème" className="p-2 rounded-lg border transition-colors duration-200 text-gray-700 border-gray-200 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
+              <div className="flex items-center gap-2">
+                <button onClick={toggleLanguage} aria-label="Changer de langue" className="p-2 rounded-lg border transition-colors duration-200 text-gray-700 border-gray-200 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 flex items-center gap-1">
+                  <Languages size={16} />
+                  <span className="text-sm font-medium">{language.toUpperCase()}</span>
+                </button>
+                <button onClick={toggleTheme} aria-label="Basculer le thème" className="p-2 rounded-lg border transition-colors duration-200 text-gray-700 border-gray-200 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+                  {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
+              </div>
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center gap-2">
+              <button onClick={toggleLanguage} aria-label="Changer de langue" className="p-2 rounded-lg border transition-colors duration-200 text-gray-700 border-gray-200 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 flex items-center gap-1">
+                <Languages size={16} />
+                <span className="text-sm font-medium">{language.toUpperCase()}</span>
+              </button>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-gray-700 hover:text-blue-600 p-2 dark:text-gray-200"
@@ -106,6 +130,9 @@ const Header = () => {
           {isMobileMenuOpen && (
             <div className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t dark:bg-gray-900 dark:border-gray-800">
+                {/* <a href="#home" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700">
+                  {t('header.home')}
+                </a> */}
                 {navItems.map((item, index) => (
                   <a
                     key={index}
@@ -121,18 +148,6 @@ const Header = () => {
           )}
         </nav>
       </header>
-
-      {/* Notice theme selection (always on refresh) */}
-      {showNotice && (
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999]">
-          <div className="flex items-start gap-3 max-w-md bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-800 shadow-lg rounded-lg px-4 py-3">
-            <div className="mt-0.5"><Info size={18} className="text-blue-600" /></div>
-            <div className="text-sm leading-5">
-              Le mode d’affichage est actuellement « {theme} ». Par défaut, il suit le thème de votre système. Vous pouvez le changer à tout moment depuis la barre de navigation.
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };

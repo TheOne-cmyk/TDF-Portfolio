@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
 import { ExternalLink, Github, Eye } from 'lucide-react';
+import { useTranslation } from '../contexts/LanguageContext';
+import { useEffect, useRef, useState } from 'react';
 
 const Projects = () => {
-  const projects = [
+  const { language } = useTranslation();
+  // Traduction dynamique des projets
+  const projects = language === 'fr' ? [
     {
       id: 1,
       title: 'Biztrack 237',
@@ -43,11 +46,52 @@ const Projects = () => {
       liveUrl: '#',
       featured: false
     }
+  ] : [
+    {
+      id: 1,
+      title: 'Biztrack 237',
+      description: 'Web application for efficient management of local small and medium businesses.',
+      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=500',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'HTML', 'PostgreSQL'],
+      githubUrl: 'https://github.com/TheOne-cmyk',
+      liveUrl: 'https://biztrack237.vercel.app/',
+      featured: true
+    },
+    {
+      id: 2,
+      title: 'RentHub',
+      description: 'Digital platform for renting and managing real estate.',
+      image: 'https://images.pexels.com/photos/3935336/pexels-photo-3935336.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/TheOne-cmyk',
+      liveUrl: 'https://renthub-ten.vercel.app/',
+      featured: true
+    },
+    {
+      id: 3,
+      title: 'DevSynch+',
+      description: 'Collaboration platform for developers.',
+      image: 'https://images.pexels.com/photos/1181279/pexels-photo-1181279.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/TheOne-cmyk',
+      liveUrl: 'https://devsynch.vercel.app/',
+      featured: false
+    },
+    {
+      id: 4,
+      title: 'GesEquip',
+      description: 'Tool for managing equipment loans, assignments, and inventory.',
+      image: 'https://images.pexels.com/photos/2566581/pexels-photo-2566581.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['Tailwind CSS', 'HTML', 'MySQL', 'JavaScript', 'PHP', 'CSS'],
+      githubUrl: '#',
+      liveUrl: '#',
+      featured: false
+    }
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const scrollInterval = useRef<NodeJS.Timeout>();
+  const [isMobile] = useState(false); // Suppression de setIsMobile non utilisé
+  const scrollInterval = useRef<ReturnType<typeof setInterval>>();
   const scrollDirection = useRef<number>(1);
   const scrollSpeed = useRef<number>(1.5);
 
@@ -106,17 +150,17 @@ const Projects = () => {
   }, [isMobile]);
 
   return (
-    <section id="projets" className="py-20 bg-white dark:bg-gray-950">
+    <section id={language === 'fr' ? 'projets' : 'projects'} className="py-20 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="animate-on-scroll opacity-0">
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-gray-100">
-              Mes Projets
+              {language === 'fr' ? 'Mes Projets' : 'My Projects'}
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
             <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
-              Découvrez une sélection de mes projets les plus représentatifs.
+              {language === 'fr' ? 'Découvrez une sélection de mes projets les plus représentatifs.' : 'Discover a selection of my most representative projects.'}
             </p>
           </div>
 
@@ -142,7 +186,7 @@ const Projects = () => {
                   {project.featured && (
                     <div className="absolute top-4 left-4 z-10">
                       <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        Projet Phare
+                        {language === 'fr' ? 'Projet Phare' : 'Featured Project'}
                       </span>
                     </div>
                   )}
@@ -196,14 +240,14 @@ const Projects = () => {
                         className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 dark:text-gray-300"
                       >
                         <Github size={18} className="mr-2" />
-                        Code source
+                        {language === 'fr' ? 'Code source' : 'Source code'}
                       </a>
                       <a
                         href={project.liveUrl}
                         className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
                       >
                         <Eye size={18} className="mr-2" />
-                        Voir le projet
+                        {language === 'fr' ? 'Voir le projet' : 'View project'}
                       </a>
                     </div>
                   </div>
@@ -225,7 +269,7 @@ const Projects = () => {
                 {project.featured && (
                   <div className="absolute top-4 left-4 z-10">
                     <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      Projet Phare
+                      {language === 'fr' ? 'Projet Phare' : 'Featured Project'}
                     </span>
                   </div>
                 )}
@@ -279,14 +323,14 @@ const Projects = () => {
                       className="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 dark:text-gray-300"
                     >
                       <Github size={18} className="mr-2" />
-                      Code source
+                      {language === 'fr' ? 'Code source' : 'Source code'}
                     </a>
                     <a
                       href={project.liveUrl}
                       className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
                     >
                       <Eye size={18} className="mr-2" />
-                      Voir le projet
+                      {language === 'fr' ? 'Voir le projet' : 'View project'}
                     </a>
                   </div>
                 </div>
@@ -297,7 +341,7 @@ const Projects = () => {
           {/* Call to Action */}
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-6 dark:text-gray-300">
-              Vous avez aimé mes projets ? Consultez mon profil GitHub pour découvrir d'autres réalisations !
+              {language === 'fr' ? 'Vous avez aimé mes projets ? Consultez mon profil GitHub pour découvrir d\'autres réalisations !' : 'Did you like my projects? Check out my GitHub profile for more!'}
             </p>
             <a
               href="https://github.com/TheOne-cmyk"
@@ -306,7 +350,7 @@ const Projects = () => {
               className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg:white/90"
             >
               <Github className="mr-2 w-5 h-5" />
-              Voir tous mes projets sur GitHub
+              {language === 'fr' ? 'Voir tous mes projets sur GitHub' : 'See all my projects on GitHub'}
             </a>
           </div>
         </div>
