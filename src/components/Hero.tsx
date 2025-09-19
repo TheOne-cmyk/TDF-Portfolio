@@ -2,7 +2,7 @@ import { ArrowRight, Eye, Mail, Linkedin, Github, Twitter } from 'lucide-react';
 import { useTypingEffect } from '../hooks/useTypingEffect';
 import { useTranslation } from '../contexts/LanguageContext';
 
-git const Hero = () => {
+const Hero = () => {
   const { t } = useTranslation();
   
   const typingText = useTypingEffect([
