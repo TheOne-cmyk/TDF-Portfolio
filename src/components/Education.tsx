@@ -132,10 +132,10 @@ const Education = () => {
               <BookOpen size={16} className="mr-2" />
               {language === 'fr' ? 'Mon parcours' : 'My journey'}
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 dark:text-gray-100">
-              {language === 'fr' ? 'Formation & Certifications' : 'Education & Certifications'}
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 dark:text-gray-100">
+              {language === 'fr' ? 'Formations & Certifications' : 'Education & Certifications'}
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4 rounded-full"></div>
+            <div className="w-24 h-1.5 bg-blue-600  mx-auto mb-4 rounded-full"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
               {language === 'fr' 
                 ? 'Mon parcours académique et les certifications qui ont renforcé mes compétences' 
@@ -151,7 +151,7 @@ const Education = () => {
                 <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
                   <GraduationCap className="text-blue-600 dark:text-blue-400" size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
                   {language === 'fr' ? 'Parcours Académique' : 'Academic Background'}
                 </h3>
               </div>
@@ -199,7 +199,7 @@ const Education = () => {
                 <div className="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
                   <Award className="text-purple-600 dark:text-purple-400" size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
                   {language === 'fr' ? 'Certifications' : 'Certifications'}
                 </h3>
               </div>
