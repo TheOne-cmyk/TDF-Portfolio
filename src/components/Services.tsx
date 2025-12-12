@@ -83,6 +83,46 @@ const services = [
 const sampleWorks = [
   {
     title: {
+      fr: 'Meilleures Crêpes',
+      en: 'Best Crepes',
+    },
+    image: '/images/services/best crepes.jpg',
+    link: '/images/services/best crepes.jpg'
+  },
+  {
+    title: {
+      fr: 'Étiquettes Jus',
+      en: 'Juice Labels',
+    },
+    image: '/images/services/ettiquettes jus.png',
+    link: '/images/services/ettiquettes jus.png'
+  },
+  {
+    title: {
+      fr: 'Soirée Blackout',
+      en: 'Blackout Party',
+    },
+    image: '/images/services/flyer blackout party.jpg',
+    link: '/images/services/flyer blackout party.jpg'
+  },
+  {
+    title: {
+      fr: 'Etiquette de jus',
+      en: 'Juice etiquette',
+    },
+    image: '/images/services/juice etiquette.png',
+    link: '/images/services/juice etiquette.png'
+  },
+  {
+    title: {
+      fr: 'Jus Lety',
+      en: 'Lety Juice',
+    },
+    image: '/images/services/flyer jus lety.png',
+    link: '/images/services/flyer jus lety.png'
+  },
+  {
+    title: {
       fr: 'Vente de Tableau blanc',
       en: 'Whiteboard Sale',
     },
@@ -91,59 +131,19 @@ const sampleWorks = [
   },
   {
     title: {
-      fr: 'Mes Services',
-      en: 'My Services',
+      fr: 'Arielo',
+      en: 'Arielo',
     },
-    image: '/images/services/ma_pub_1.png',
-    link: '/images/services/ma_pub_1.png'
+    image: '/images/services/flyr arielo.jpg',
+    link: '/images/services/flyr arielo.jpg'
   },
   {
     title: {
-      fr: 'Logo Minimaliste',
-      en: 'Minimalist Logo',
+      fr: 'Cuisine Délice',
+      en: 'Délicious Cuisine',
     },
-    image: '/images/services/logo Immo237.png',
-    link: '/images/services/logo Immo237.png'
-  },
-  {
-    title: {
-      fr: "Location d'accessoires",
-      en: 'Accessories Rental',
-    },
-    image: '/images/services/Flyer NL déco.png',
-    link: '/images/services/Flyer NL déco.png'
-  },
-  {
-    title: {
-      fr: 'Vente de boissons',
-      en: 'Drink Sale',
-    },
-    image: '/images/services/flyer vente de boissons.png',
-    link: '/images/services/flyer vente de boisoons.png'
-  },
-  {
-    title: {
-      fr: 'Patisserie',
-      en: 'Pastry',
-    },
-    image: '/images/services/flyer-gateau.png',
-    link: '/images/services/flyer-gateau.png'
-  },
-  {
-    title: {
-      fr: 'Bonne rentrée scolaire',
-      en: 'Happy Back to School',
-    },
-    image: '/images/services/Bonne rentrée scolaire.png',
-    link: '/images/services/Bonne rentrée scolaire.png'
-  },
-  {
-    title: {
-      fr: 'Mes Services',
-      en: 'My Services',
-    },
-    image: '/images/services/My_servs.png',
-    link: '/images/services/My_servs.png'
+    image: '/images/services/flyer cuisine.png',
+    link: '/images/services/flyer cuisine.png'
   }
 ];
 

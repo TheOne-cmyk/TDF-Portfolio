@@ -1,3 +1,4 @@
+import { color } from 'framer-motion';
 import { useTranslation } from '../contexts/LanguageContext';
 import { GraduationCap, Award, Calendar, BookOpen, ExternalLink } from 'lucide-react';
 import { FaGlobe, FaReact, FaGitAlt, FaFreeCodeCamp, FaYoutube } from 'react-icons/fa';

@@ -79,12 +79,12 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'GesEquip',
+      title: 'Fixflow',
       description: 'Tool for managing equipment loans, assignments, and inventory.',
       image: 'https://images.pexels.com/photos/2566581/pexels-photo-2566581.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['Tailwind CSS', 'HTML', 'MySQL', 'JavaScript', 'PHP', 'CSS'],
-      githubUrl: '#',
-      liveUrl: '#',
+      githubUrl: 'https://github.com/TheOne-cmyk',
+      liveUrl: 'https://fixflow-ten.vercel.app/',
       featured: false
     }
   ];
