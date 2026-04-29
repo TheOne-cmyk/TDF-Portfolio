@@ -34,14 +34,14 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-2">
               <img 
                 src="/logo.png" 
-                alt="TDF" 
-                className="w-9 h-9 object-contain"
+                alt="Logo TDF Portfolio - Développeur Full-Stack" 
+                className="w-11 h-11 object-contain"
               />
               <span className="font-display font-bold text-gray-900 dark:text-white">
                 TDF<span className="gradient-text">.</span>
               </span>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-xs">
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-xs">
               {t('footer.description')}
             </p>
             {/* Social icons */}
@@ -57,10 +57,10 @@ const Footer: React.FC = () => {
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={label}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center
+                  className="w-11 h-11 rounded-xl flex items-center justify-center
                              bg-gray-100 dark:bg-white/5
                              border border-gray-200 dark:border-blue-500/10
-                             text-gray-500 dark:text-gray-400
+                             text-gray-600 dark:text-gray-400
                              hover:text-primary-600 dark:hover:text-primary-400
                              hover:border-primary-400/50 hover:bg-primary-50 dark:hover:bg-primary-900/20
                              hover:shadow-glow-sm
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -100,19 +100,19 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="mailto:tsobgouwarren@gmail.com"
-                  className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                  className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                 >
                   <Mail size={14} className="flex-shrink-0" />
                   tsobgouwarren@gmail.com
                 </a>
               </li>
-              <li className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+              <li className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                 <MapPin size={14} className="flex-shrink-0 text-primary-500" />
                 Rivière-du-Loup, QC, Canada
               </li>
               <li className="flex items-center gap-2 mt-1">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-sm text-gray-500 dark:text-gray-400">{t('footer.available')}</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">{t('footer.available')}</span>
               </li>
             </ul>
           </div>
@@ -120,12 +120,12 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-400 dark:text-gray-500">
+          <p className="text-xs text-gray-500 dark:text-gray-400">
             © {year} Tsobgou Dongmo Francis Warren. {t('footer.copyright')}.
           </p>
           <a
             href="#accueil"
-            className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 group"
+            className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 group"
           >
             {t('footer.backToTop')}
             <div className="w-6 h-6 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-blue-500/10 flex items-center justify-center group-hover:bg-primary-50 group-hover:border-primary-300 dark:group-hover:bg-primary-900/20 transition-all duration-200">

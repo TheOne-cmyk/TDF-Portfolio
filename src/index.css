@@ -44,7 +44,7 @@
   }
 
   .section-subtitle {
-    @apply text-gray-500 dark:text-gray-400 text-base md:text-lg max-w-2xl mx-auto;
+    @apply text-gray-600 dark:text-gray-400 text-base md:text-lg max-w-2xl mx-auto;
   }
 
   .section-divider {

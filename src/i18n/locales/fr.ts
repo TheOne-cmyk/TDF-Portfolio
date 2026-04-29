@@ -9,7 +9,7 @@ export const fr = {
     resume: 'CV',
     education: 'Formation',
     experience: 'Expérience',
-    projects: 'Projets',
+    projects: 'Études de cas',
   },
   hero: {
     title: 'Développeur Full-Stack & Designer',

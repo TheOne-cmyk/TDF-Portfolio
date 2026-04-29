@@ -13,7 +13,7 @@ const Projects = () => {
           id: 1,
           title: 'BizTrack — Solution de Gestion Commerciale Intégrée.',
           description: 'Centralisation des ventes, des stocks et des indicateurs clés pour piloter l\'activité.',
-          image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+          image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
           technologies: ['Laravel', 'React', 'PostgreSQL', 'Tailwind CSS'],
           githubUrl: 'https://github.com/TheOne-cmyk',
           liveUrl: 'https://biztrack237.vercel.app/',
@@ -27,7 +27,7 @@ const Projects = () => {
           id: 2,
           title: 'FixIT — Optimisation de la Maintenance d\'Équipements.',
           description: 'Suivi du parc matériel et centralisation des rapports techniques pour réduire les temps d\'arrêt.',
-          image: 'https://images.pexels.com/photos/2566581/pexels-photo-2566581.jpeg?auto=compress&cs=tinysrgb&w=800',
+          image: 'https://images.pexels.com/photos/2566581/pexels-photo-2566581.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
           technologies: ['React', 'TypeScript', 'MySQL', 'Tailwind CSS'],
           githubUrl: 'https://github.com/TheOne-cmyk',
           liveUrl: '#',
@@ -43,7 +43,7 @@ const Projects = () => {
           id: 1,
           title: 'BizTrack — Integrated Commercial Management Solution.',
           description: 'Consolidating sales, inventory, and key metrics to better manage operations.',
-          image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+          image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
           technologies: ['Laravel', 'React', 'PostgreSQL', 'Tailwind CSS'],
           githubUrl: 'https://github.com/TheOne-cmyk',
           liveUrl: 'https://biztrack237.vercel.app/',
@@ -57,7 +57,7 @@ const Projects = () => {
           id: 2,
           title: 'FixIT — Equipment Maintenance Optimization.',
           description: 'Tracking equipment fleets and centralizing technical reports to reduce downtime.',
-          image: 'https://images.pexels.com/photos/2566581/pexels-photo-2566581.jpeg?auto=compress&cs=tinysrgb&w=800',
+          image: 'https://images.pexels.com/photos/2566581/pexels-photo-2566581.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
           technologies: ['React', 'TypeScript', 'MySQL', 'Tailwind CSS'],
           githubUrl: 'https://github.com/TheOne-cmyk',
           liveUrl: '#',
@@ -144,7 +144,7 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <p className="text-gray-500 dark:text-gray-400 mb-6 text-sm">
+          <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
             {language === 'fr'
               ? 'Vous avez aimé ces projets ? Découvrez mes autres réalisations sur GitHub.'
               : 'Liked these projects? Discover more on my GitHub profile.'}
@@ -279,7 +279,7 @@ const ProjectCard = ({ project, language, isExternalLink }: ProjectCardProps) =>
         <h3 className="font-display font-bold text-gray-900 dark:text-white text-base md:text-lg mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-snug">
           {project.title}
         </h3>
-        <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">
           {project.description}
         </p>
 
@@ -325,7 +325,7 @@ const ProjectCard = ({ project, language, isExternalLink }: ProjectCardProps) =>
             href={project.githubUrl}
             target={isExternalLink(project.githubUrl) ? '_blank' : undefined}
             rel={isExternalLink(project.githubUrl) ? 'noopener noreferrer' : undefined}
-            className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+            className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
           >
             <Github size={15} />
             {language === 'fr' ? 'Code source' : 'Source code'}

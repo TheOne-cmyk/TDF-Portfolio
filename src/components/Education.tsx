@@ -200,7 +200,7 @@ const Education = () => {
                           
                           <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">{item.institution}</p>
                           
-                          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                          <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
                             <Calendar size={16} className="mr-2" />
                             {item.period}
                           </div>
@@ -243,7 +243,7 @@ const Education = () => {
                           <div className={`w-12 h-12 rounded-lg ${cert.bgColor} flex items-center justify-center`}>
                             <Icon size={24} className={cert.color} />
                           </div>
-                          <div className="flex items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                          <div className="flex items-center text-xs font-medium text-gray-600 dark:text-gray-400">
                             <PlatformIcon size={14} className="mr-1" />
                             {cert.platform}
                           </div>

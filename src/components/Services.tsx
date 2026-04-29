@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../contexts/LanguageContext';
-import { Code2, Globe, Wrench, CheckCircle2, ExternalLink } from 'lucide-react';
+import { Code2, Globe, Wrench, Palette, CheckCircle2, ExternalLink } from 'lucide-react';
 
-const serviceIcons = [Code2, Globe, Wrench];
+const serviceIcons = [Code2, Globe, Wrench, Palette];
 
 const services = [
   {
@@ -49,6 +49,21 @@ const services = [
       { fr: 'Corrections & évolutions', en: 'Fixes & improvements' },
       { fr: 'Monitoring & stabilité', en: 'Monitoring & reliability' },
       { fr: 'Optimisation SEO/perf', en: 'SEO/performance optimization' },
+    ],
+  },
+  {
+    icon: Palette,
+    gradient: 'from-pink-500 to-rose-600',
+    glow: 'rgba(236,72,153,0.3)',
+    title: { fr: 'Design Graphique & Branding', en: 'Graphic Design & Branding' },
+    description: {
+      fr: 'Création d\'identités visuelles percutantes et de supports de communication (logos, bannières, affiches) pour renforcer l\'image de votre marque.',
+      en: 'Creation of striking visual identities and communication materials (logos, banners, posters) to strengthen your brand image.',
+    },
+    features: [
+      { fr: 'Charte visuelle & logo', en: 'Visual identity & logo' },
+      { fr: 'Bannières & affiches', en: 'Banners & posters' },
+      { fr: 'Stratégie de branding', en: 'Branding strategy' },
     ],
   },
 ];
@@ -139,7 +154,7 @@ const Services: React.FC = () => {
                 <h3 className="font-display font-bold text-base text-gray-900 dark:text-white mb-2 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors duration-200">
                   {service.title[language as 'fr' | 'en']}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5">
                   {service.description[language as 'fr' | 'en']}
                 </p>
 
@@ -167,7 +182,7 @@ const Services: React.FC = () => {
             >
               {language === 'fr' ? 'Réalisations Graphiques' : 'Graphic Design Works'}
             </motion.h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 text-sm max-w-xl mx-auto">
               {language === 'fr'
                 ? 'Un aperçu de quelques-unes de mes créations — flyers, étiquettes, visuels marketing.'
                 : 'A preview of some of my graphic creations — flyers, labels, marketing visuals.'}

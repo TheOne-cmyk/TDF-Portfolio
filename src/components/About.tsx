@@ -71,7 +71,7 @@ const About = () => {
                   key={labelKey}
                   className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5"
                 >
-                  <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">
+                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">
                     {t(labelKey)}
                   </p>
                   <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">{value}</p>
@@ -107,7 +107,7 @@ const About = () => {
                 <h3 className="font-display font-semibold text-base text-gray-900 dark:text-white mb-2">
                   {t(`about.${key}`)}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   {t(`about.${key}Desc`)}
                 </p>
               </motion.div>

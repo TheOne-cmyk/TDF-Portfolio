@@ -67,8 +67,8 @@ const Header = () => {
               <a href="#accueil" className="group flex items-center gap-2">
                 <img 
                   src="/logo.png" 
-                  alt="TDF" 
-                  className="w-9 h-9 object-contain transition-transform duration-300 group-hover:scale-110"
+                  alt="Logo TDF Portfolio - Développeur Full-Stack" 
+                  className="w-11 h-11 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className="font-display font-bold text-gray-900 dark:text-white text-base hidden sm:block tracking-tight">
                   TDF<span className="gradient-text">.</span>
@@ -96,7 +96,7 @@ const Header = () => {
                 <button
                   onClick={toggleLanguage}
                   aria-label="Changer de langue"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-primary-400 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
+                  className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-primary-400 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
                 >
                   <Languages size={14} />
                   <span>{language.toUpperCase()}</span>
@@ -104,7 +104,7 @@ const Header = () => {
                 <button
                   onClick={toggleTheme}
                   aria-label="Basculer le thème"
-                  className="p-2 rounded-lg text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-primary-400 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
+                  className="p-2.5 rounded-lg text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-primary-400 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
                 >
                   {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
                 </button>
@@ -116,7 +116,7 @@ const Header = () => {
               <button
                 onClick={toggleLanguage}
                 aria-label="Changer de langue"
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-primary-400 transition-all duration-200"
+                className="flex items-center gap-1 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-primary-400 transition-all duration-200"
               >
                 <Languages size={14} />
                 <span>{language.toUpperCase()}</span>
@@ -124,14 +124,14 @@ const Header = () => {
               <button
                 onClick={toggleTheme}
                 aria-label="Basculer le thème"
-                className="p-2 rounded-lg text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-primary-400 transition-all duration-200"
+                className="p-2.5 rounded-lg text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 hover:border-primary-400 transition-all duration-200"
               >
                 {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
               </button>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-                className="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                className="p-2.5 rounded-lg text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
               >
                 {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>

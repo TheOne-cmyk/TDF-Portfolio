@@ -113,7 +113,7 @@ const Hero = () => {
             {/* Description */}
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={0.3}
-              className="text-gray-500 dark:text-gray-400 text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+              className="text-gray-600 dark:text-gray-400 text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
               {t('hero.subtitle')}
             </motion.p>
@@ -131,7 +131,7 @@ const Hero = () => {
                   >
                     {stat.value}
                   </div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{stat.label}</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400 font-medium">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -156,7 +156,7 @@ const Hero = () => {
               variants={fadeUp} initial="hidden" animate="visible" custom={0.6}
               className="flex items-center gap-3 justify-center lg:justify-start"
             >
-              <span className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-widest font-medium">Follow me</span>
+              <span className="text-xs text-gray-400 dark:text-gray-600 uppercase tracking-widest font-medium">Follow me</span>
               <div className="w-10 h-px bg-gray-200 dark:bg-white/10" />
               {socialLinks.map(({ href, icon: Icon, label }) => (
                 <a
@@ -165,10 +165,10 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center
+                  className="w-11 h-11 rounded-xl flex items-center justify-center
                              bg-gray-100 dark:bg-white/5
                              border border-gray-200 dark:border-white/10
-                             text-gray-500 dark:text-gray-400
+                             text-gray-600 dark:text-gray-400
                              hover:text-primary-600 dark:hover:text-primary-400
                              hover:border-primary-400/50 dark:hover:border-primary-500/50
                              hover:bg-primary-50 dark:hover:bg-primary-900/20
@@ -203,7 +203,7 @@ const Hero = () => {
                 <div className="flex items-center gap-3 mb-5">
                   <img
                     src="/logo.png"
-                    alt="TDF"
+                    alt="Logo TDF Portfolio - Développeur Full-Stack"
                     className="w-14 h-14 rounded-xl object-contain shadow-glow flex-shrink-0"
                   />
                   <div>
@@ -215,7 +215,7 @@ const Hero = () => {
                   {/* Status dot */}
                   <div className="ml-auto flex items-center gap-1.5">
                     <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                    <span className="text-xs text-gray-400 dark:text-gray-500">{t('hero.available') || 'Available'}</span>
+                    <span className="text-xs text-gray-400 dark:text-gray-600">{t('hero.available') || 'Available'}</span>
                   </div>
                 </div>
 
@@ -224,7 +224,7 @@ const Hero = () => {
 
                 {/* Expertise Tags */}
                 <div className="mb-5">
-                  <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
+                  <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-600 uppercase tracking-widest mb-2">
                     {t('hero.expertise')}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -251,10 +251,10 @@ const Hero = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="w-9 h-9 rounded-xl flex items-center justify-center
+                      className="w-11 h-11 rounded-xl flex items-center justify-center
                                  bg-gray-50 dark:bg-white/5
                                  border border-gray-200 dark:border-white/10
-                                 text-gray-500 hover:text-primary-600
+                                 text-gray-600 hover:text-primary-600
                                  dark:text-gray-400 dark:hover:text-primary-400
                                  hover:border-primary-400/50 hover:shadow-glow-sm
                                  transition-all duration-200"
