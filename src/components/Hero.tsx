@@ -1,163 +1,328 @@
-import { ArrowRight, Eye, Mail, Linkedin, Github, Twitter } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Download, Github, Linkedin, Twitter, Sparkles } from 'lucide-react';
 import { useTypingEffect } from '../hooks/useTypingEffect';
 import { useTranslation } from '../contexts/LanguageContext';
 
+const fadeUp = {
+  hidden:  { opacity: 0, y: 30 },
+  visible: (delay: number) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }
+  }),
+};
+
 const Hero = () => {
   const { t } = useTranslation();
-  
+
   const typingText = useTypingEffect([
     t('hero.typing1'),
     t('hero.typing2'),
-    t('hero.typing3')
-  ], 100, 2000);
+    t('hero.typing3'),
+  ], 90, 90, 2200);
+
+  const stats = [
+    { value: '2+', label: t('hero.statsYears') || 'Ans Exp.' },
+    { value: '10+', label: t('hero.statsProjects') || 'Projets' },
+    { value: '95%', label: t('hero.statsSatisfaction') || 'Satisfaction' },
+  ];
+
+  const socialLinks = [
+    { href: 'https://github.com/TheOne-cmyk',   icon: Github,   label: 'GitHub' },
+    { href: 'https://linkedin.com/in/warren-tsobgou-21423936', icon: Linkedin, label: 'LinkedIn' },
+    { href: 'https://x.com/',                   icon: Twitter,  label: 'X (Twitter)' },
+  ];
+
+  const expertiseTags = ['React', 'TypeScript', 'PHP', 'PostgreSQL', 'Tailwind', 'Figma'];
 
   return (
-    <section id="accueil" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 to-white py-4 lg:py-8 dark:from-gray-900 dark:to-gray-950">
-      {/* Éléments décoratifs flottants - version plus subtile */}
-      <div className="absolute top-10 left-5 lg:top-16 lg:left-16 w-14 h-14 bg-blue-200 rounded-full opacity-20 animate-float"></div>
-      <div className="absolute top-1/4 right-8 lg:right-20 w-10 h-10 bg-blue-300 rounded-lg opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute bottom-20 left-16 lg:bottom-28 lg:left-32 w-16 h-16 bg-blue-400 rounded-full opacity-15 animate-float" style={{ animationDelay: '4s' }}></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-10 lg:mt-0">
-        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 xl:gap-12">
-          {/* Contenu principal - Prend plus d'espace sur desktop */}
-          <div className="w-full lg:w-7/12 xl:w-8/12 text-center lg:text-left">
-            <div className="mb-4 lg:mb-6">
-              <div className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 rounded-full text-xs font-medium mb-3 lg:mb-4">
-                {t('hero.title')}
-              </div>
-              
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-2 lg:mb-3 dark:text-gray-100">
-                <span className="text-blue-600 block">Tsobgou Dongmo</span>
-                <span className="text-gray-800 text-2xl md:text-3xl lg:text-4xl xl:text-5xl dark:text-gray-200">Francis Warren</span>
-              </h1>
-              
-              {/* Effet de typing */}
-              <div className="h-7 lg:h-8 mb-4 lg:mb-6 flex justify-center lg:justify-start">
-                <p className="text-base lg:text-lg text-blue-600 font-medium inline-flex items-center">
-                  {typingText}
-                  <span className="animate-pulse ml-1">|</span>
-                </p>
-              </div>
-              
-              {/* Description concise */}
-              <p className="text-gray-600 text-sm lg:text-base max-w-2xl mx-auto lg:mx-0 mb-4 lg:mb-6 dark:text-gray-300">
-                {t('hero.description')}
+    <section
+      id="accueil"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
+    >
+      {/* ── Background ── */}
+      <div className="absolute inset-0 bg-white dark:bg-[#0a0f1c]" />
+
+      {/* Mesh gradient overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-mesh-light dark:bg-gradient-mesh-dark opacity-70" />
+      </div>
+
+      {/* Glowing Orbs */}
+      <div
+        className="orb w-[500px] h-[500px] top-[-180px] left-[-150px] animate-pulse-glow"
+        style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.25) 0%, transparent 70%)' }}
+      />
+      <div
+        className="orb w-[400px] h-[400px] bottom-[-100px] right-[-100px] animate-pulse-glow"
+        style={{
+          background: 'radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%)',
+          animationDelay: '1.5s',
+        }}
+      />
+      <div
+        className="orb w-[280px] h-[280px] top-[40%] right-[20%] hidden lg:block"
+        style={{
+          background: 'radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)',
+          animationDelay: '3s',
+        }}
+      />
+
+      {/* Floating geometric shapes */}
+      <div className="absolute top-24 right-[8%] w-5 h-5 rounded-full border-2 border-blue-400/40 animate-float" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/3 left-[5%] w-3 h-3 rounded-full bg-blue-400/30 animate-float" style={{ animationDelay: '2s' }} />
+      <div className="absolute bottom-1/4 right-[12%] w-4 h-4 rounded border-2 border-blue-400/30 rotate-45 animate-float-slow" style={{ animationDelay: '0.5s' }} />
+      <div className="absolute top-2/3 left-[8%] w-6 h-6 rounded-sm border border-primary-300/30 rotate-12 animate-float-slow" />
+
+      {/* ── Content ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex flex-col lg:flex-row lg:items-start items-center gap-10 lg:gap-16 xl:gap-20">
+
+          {/* LEFT — Text Content */}
+          <div className="w-full lg:w-3/5 xl:w-7/12 text-center lg:text-left">
+
+            {/* Badge */}
+            <motion.div
+              variants={fadeUp} initial="hidden" animate="visible" custom={0}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6
+                         bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300
+                         border border-primary-200/60 dark:border-primary-700/30"
+            >
+              <Sparkles size={14} className="text-primary-500" />
+              {t('hero.title')}
+            </motion.div>
+
+            {/* H1 */}
+            <motion.h1
+              variants={fadeUp} initial="hidden" animate="visible" custom={0.1}
+              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-4 tracking-tight text-gray-900 dark:text-white"
+            >
+              {t('hero.h1')}
+            </motion.h1>
+
+            {/* Typing effect */}
+            <motion.div
+              variants={fadeUp} initial="hidden" animate="visible" custom={0.2}
+              className="h-8 lg:h-10 mb-5 flex justify-center lg:justify-start"
+            >
+              <p className="text-lg lg:text-xl font-semibold font-display inline-flex items-center gradient-text">
+                {typingText}
+                <span className="ml-1 w-[2px] h-6 bg-primary-500 animate-pulse inline-block rounded-full" />
               </p>
-            </div>
+            </motion.div>
 
-            {/* Statistiques modernes - alignées horizontalement */}
-            <div className="flex justify-center lg:justify-start gap-3 lg:gap-4 mb-6 lg:mb-8">
-              <div className="bg-white p-2 lg:p-3 rounded-lg shadow-sm border border-blue-100 flex flex-col items-center min-w-[80px] lg:min-w-[90px] dark:bg-gray-900 dark:border-gray-800">
-                <div className="text-xl lg:text-2xl font-bold text-blue-600 mb-1">2+</div>
-                <div className="text-xs text-gray-600 dark:text-gray-300">Ans d'expérience</div>
-              </div>
-              <div className="bg-white p-2 lg:p-3 rounded-lg shadow-sm border border-blue-100 flex flex-col items-center min-w-[80px] lg:min-w-[90px] dark:bg-gray-900 dark:border-gray-800">
-                <div className="text-xl lg:text-2xl font-bold text-blue-600 mb-1">8+</div>
-                <div className="text-xs text-gray-600 dark:text-gray-300">Projets réalisés</div>
-              </div>
-              <div className="bg-white p-2 lg:p-3 rounded-lg shadow-sm border border-blue-100 flex flex-col items-center min-w-[80px] lg:min-w-[90px] dark:bg-gray-900 dark:border-gray-800">
-                <div className="text-xl lg:text-2xl font-bold text-blue-600 mb-1">85%</div>
-                <div className="text-xs text-gray-600 dark:text-gray-300">Satisfaction</div>
-              </div>
-            </div>
+            {/* Description */}
+            <motion.p
+              variants={fadeUp} initial="hidden" animate="visible" custom={0.3}
+              className="text-gray-500 dark:text-gray-400 text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+            >
+              {t('hero.subtitle')}
+            </motion.p>
 
-            {/* Boutons d'action */}
-            <div className="flex flex-col md:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                href="#projets"
-                className="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-200 group shadow-md hover:shadow-lg"
-              >
-                {t('hero.viewProjects')}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            {/* Stats */}
+            <motion.div
+              variants={fadeUp} initial="hidden" animate="visible" custom={0.4}
+              className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8"
+            >
+              {stats.map((stat, i) => (
+                <div key={i} className="stat-badge min-w-[90px]">
+                  <div
+                    className="text-2xl lg:text-3xl font-display font-bold mb-0.5 bg-clip-text text-transparent"
+                    style={{ backgroundImage: 'linear-gradient(135deg, #2563eb, #3b82f6)' }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={fadeUp} initial="hidden" animate="visible" custom={0.5}
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8"
+            >
+              <a href="#contact" className="btn-primary group gap-2 text-sm">
+                {t('hero.bookAudit')}
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
               </a>
-              <a
-                href="#contact"
-                className="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
-              >
-                <Mail className="mr-2 w-5 h-5" />
-                {t('hero.contactMe')}
-              </a>
-              <a
-                href="/cv.pdf"
-                className="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 bg-white text-gray-800 font-medium rounded-lg hover:bg-gray-50 transition-all duration-200 border border-gray-200 shadow-sm hover:shadow-md dark:bg-gray-900 dark:text-gray-100 dark:border-gray-800 dark:hover:bg-gray-800"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Eye className="mr-2 w-5 h-5" />
+              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline gap-2 text-sm">
+                <Download size={16} />
                 {t('hero.viewCV')}
               </a>
-            </div>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div
+              variants={fadeUp} initial="hidden" animate="visible" custom={0.6}
+              className="flex items-center gap-3 justify-center lg:justify-start"
+            >
+              <span className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-widest font-medium">Follow me</span>
+              <div className="w-10 h-px bg-gray-200 dark:bg-white/10" />
+              {socialLinks.map(({ href, icon: Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-9 h-9 rounded-xl flex items-center justify-center
+                             bg-gray-100 dark:bg-white/5
+                             border border-gray-200 dark:border-white/10
+                             text-gray-500 dark:text-gray-400
+                             hover:text-primary-600 dark:hover:text-primary-400
+                             hover:border-primary-400/50 dark:hover:border-primary-500/50
+                             hover:bg-primary-50 dark:hover:bg-primary-900/20
+                             hover:shadow-glow-sm
+                             transition-all duration-200"
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
+            </motion.div>
           </div>
 
-          {/* Section visuelle moderne - Prend moins d'espace sur desktop */}
-          <div className="w-full lg:w-5/12 xl:w-4/12 flex justify-center relative mt-4 lg:mt-0">
-            <div className="relative w-full max-w-xs lg:max-w-sm">
-              {/* Carte principale avec effet 3D */}
-              <div className="bg-white rounded-xl p-5 shadow-lg border border-blue-100 transform transition-all duration-500 hover:shadow-md z-20 relative dark:bg-gray-900 dark:border-gray-800">
-                <div className="flex items-center mb-4">
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-md">
-                    <span className="text-lg lg:text-xl font-bold text-white">  &lt;/&gt; </span>
+          {/* RIGHT — Profile Card */}
+          <motion.div
+            className="w-full lg:w-2/5 xl:w-5/12 flex justify-center lg:mt-[200px]"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <div className="relative w-full max-w-[340px] lg:max-w-[380px]">
+
+              {/* Background glow behind card */}
+              <div
+                className="absolute -inset-6 rounded-3xl opacity-30 blur-2xl"
+                style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.4), rgba(59,130,246,0.4))' }}
+              />
+
+              {/* Main Glass Card */}
+              <div className="relative glass-card rounded-2xl p-6 gradient-border">
+
+                {/* Card Header */}
+                <div className="flex items-center gap-3 mb-5">
+                  <img
+                    src="/logo.png"
+                    alt="TDF"
+                    className="w-14 h-14 rounded-xl object-contain shadow-glow flex-shrink-0"
+                  />
+                  <div>
+                    <h2 className="font-display font-bold text-gray-900 dark:text-white text-lg leading-tight">TDF</h2>
+                    <p className="text-primary-600 dark:text-primary-400 text-xs font-medium">
+                      {t('hero.fullStackDeveloper')}
+                    </p>
                   </div>
-                  <div className="ml-3">
-                    <h2 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-gray-100">TDFW</h2>
-                    <p className="text-blue-600 text-xs lg:text-sm">{t('hero.fullStackDeveloper')}</p>
+                  {/* Status dot */}
+                  <div className="ml-auto flex items-center gap-1.5">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                    <span className="text-xs text-gray-400 dark:text-gray-500">{t('hero.available') || 'Available'}</span>
                   </div>
                 </div>
-                
-                <div className="h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent my-4"></div>
-                
-                <div className="mb-4">
-                  <h3 className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide dark:text-gray-400">{t('hero.expertise')}</h3>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 text-xs font-medium rounded-full">React</span>
-                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 text-xs font-medium rounded-full">PHP</span>
-                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 text-xs font-medium rounded-full">PostgréSQL</span>
-                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 text-xs font-medium rounded-full">Tailwind</span>
+
+                {/* Divider */}
+                <div className="h-px mb-5" style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)' }} />
+
+                {/* Expertise Tags */}
+                <div className="mb-5">
+                  <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
+                    {t('hero.expertise')}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {expertiseTags.map(tag => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 text-xs font-medium rounded-lg
+                                   bg-primary-50 dark:bg-primary-900/20
+                                   text-primary-700 dark:text-primary-300
+                                   border border-primary-200/40 dark:border-primary-700/30"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                
-                <div className="flex items-center mb-4">
-                  <div className="w-2 h-2 lg:w-2 lg:h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                  <p className="text-xs text-gray-600 dark:text-gray-300">{t('hero.availableForNewProjects')}</p>
-                </div>
-                
-                {/* Icônes des réseaux sociaux en bas de la carte */}
-                <div className="flex justify-center gap-2 pt-3 border-t border-blue-100 dark:border-gray-800">
-                  <a href="#" className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300 hover:bg-blue-100 dark:hover:bg-blue-900/20 group">
-                    <Github className="w-3 h-3 lg:w-4 lg:h-4 text-gray-700 group-hover:text-blue-600" />
-                  </a>
-                  <a href="#" className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300 hover:bg-blue-100 dark:hover:bg-blue-900/20 group">
-                    <Linkedin className="w-3 h-3 lg:w-4 lg:h-4 text-gray-700 group-hover:text-blue-600" />
-                  </a>
-                  <a href="#" className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300 hover:bg-blue-100 dark:hover:bg-blue-900/20 group">
-                    <Twitter className="w-3 h-3 lg:w-4 lg:h-4 text-gray-700 group-hover:text-blue-600" />
-                  </a>
+
+                {/* Social Links Row */}
+                <div className="flex justify-center gap-2 pt-4 border-t border-gray-100 dark:border-white/5">
+                  {socialLinks.map(({ href, icon: Icon, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="w-9 h-9 rounded-xl flex items-center justify-center
+                                 bg-gray-50 dark:bg-white/5
+                                 border border-gray-200 dark:border-white/10
+                                 text-gray-500 hover:text-primary-600
+                                 dark:text-gray-400 dark:hover:text-primary-400
+                                 hover:border-primary-400/50 hover:shadow-glow-sm
+                                 transition-all duration-200"
+                    >
+                      <Icon size={15} />
+                    </a>
+                  ))}
                 </div>
               </div>
-              
-              {/* Éléments flottants décoratifs */}
-              <div className="absolute -top-3 -right-3 w-20 h-20 bg-blue-100 dark:bg-blue-900/20 rounded-xl opacity-30 z-10 animate-float" style={{ animationDelay: '1.5s' }}></div>
-              <div className="absolute -bottom-3 -left-3 w-16 h-16 bg-blue-200 rounded-xl opacity-20 z-10 animate-float" style={{ animationDelay: '2.5s' }}></div>
-              
-              {/* Code flottant décoratif */}
-              <div className="absolute -bottom-5 right-2 lg:-bottom-6 lg:right-3 bg-white p-1 lg:p-2 rounded border border-blue-100 transform rotate-3 z-30 shadow-sm dark:bg-gray-900 dark:border-gray-800">
-                <div className="text-[10px] text-gray-700 font-mono dark:text-gray-300">
-                  <div className="text-blue-600">{t('hero.function')}</div>
-                  <div className="ml-3"><span className="text-purple-600">{t('hero.create')}</span><span className="text-blue-600">{t('hero.project')}</span>() {'{'}</div>
-                  <div className="ml-6"><span className="text-green-600">{t('hero.return')}</span> <span className="text-yellow-600">{t('hero.success')}</span>;</div>
-                  <div className="text-blue-600">function</div>
-                  <div className="ml-3"><span className="text-purple-600">create</span><span className="text-blue-600">Project</span>() {'{'}</div>
-                  <div className="ml-6"><span className="text-green-600">return</span> <span className="text-yellow-600">"success"</span>;</div>
-                  <div className="ml-3">{'}'}</div>
+
+              {/* Floating Code Snippet */}
+              <motion.div
+                className="absolute -bottom-10 -right-4 lg:-right-8 rounded-xl overflow-hidden shadow-card-hover border border-white/20 dark:border-white/5"
+                style={{ background: '#1e1e2e' }}
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+              >
+                <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+                  <span className="ml-2 text-[9px] text-white/30 font-mono">portfolio.tsx</span>
                 </div>
-              </div>
+                <div className="px-3 py-2 font-mono text-[10px] leading-relaxed">
+                  <div><span className="text-[#c678dd]">const</span> <span className="text-[#e06c75]">skills</span> <span className="text-white/60">=</span> <span className="text-[#61afef]">[</span></div>
+                  <div className="pl-3"><span className="text-[#98c379]">'Dev'</span><span className="text-white/40">,</span> <span className="text-[#98c379]">'Design'</span></div>
+                  <div><span className="text-[#61afef]">]</span><span className="text-white/60">;</span></div>
+                  <div className="mt-1">
+                    <span className="text-[#c678dd]">return</span>{' '}
+                    <span className="text-[#e5c07b]">success</span>
+                    <span className="text-[#56b6c2]"> ✓</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating Badge */}
+              <motion.div
+                className="absolute -top-5 -left-4 lg:-left-6 rounded-xl px-3 py-2 shadow-card-hover glass-card"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[11px] font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                    {t('hero.availableForNewProjects') || 'Open to work'}
+                  </span>
+                </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
+
         </div>
       </div>
 
-
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 dark:text-gray-600"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
+      >
+        <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
+        <div className="w-5 h-8 rounded-full border-2 border-current flex items-start justify-center p-1">
+          <motion.div
+            className="w-1 h-2 rounded-full bg-current"
+            animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </div>
+      </motion.div>
     </section>
   );
 };

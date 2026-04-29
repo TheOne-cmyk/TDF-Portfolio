@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 export const useTypingEffect = (
   texts: string[],
   typingSpeed: number = 100,
-  deletingSpeed: number = 50,
-  pauseTime: number = 2000
+  deletingSpeed: number = 80,
+  pauseTime: number = 200
 ) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');

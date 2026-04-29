@@ -1,4 +1,4 @@
-import { color } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from '../contexts/LanguageContext';
 import { GraduationCap, Award, Calendar, BookOpen, ExternalLink } from 'lucide-react';
 import { FaGlobe, FaReact, FaGitAlt, FaFreeCodeCamp, FaYoutube } from 'react-icons/fa';
@@ -124,20 +124,29 @@ const Education = () => {
   ];
 
   return (
-    <section id="formations" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="animate-on-scroll opacity-0">
+    <section id="formations" className="py-20 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-[#0a0f1c] dark:to-[#080d18]" />
+      <div
+        className="orb absolute w-[500px] h-[400px] top-0 left-1/2 -translate-x-1/2 opacity-20 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(37,99,235,0.15) 0%, transparent 70%)' }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           {/* Header */}
           <div className="text-center mb-16">
-            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mb-4 dark:bg-blue-900/30 dark:text-blue-300">
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium
+                             bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300
+                             border border-blue-200/60 dark:border-blue-500/20 mb-4">
               <BookOpen size={16} className="mr-2" />
               {language === 'fr' ? 'Mon parcours' : 'My journey'}
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 dark:text-gray-100">
+            <h2 className="section-title mb-4">
               {language === 'fr' ? 'Formations & Certifications' : 'Education & Certifications'}
             </h2>
-            <div className="w-24 h-1.5 bg-blue-600  mx-auto mb-4 rounded-full"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+            <div className="section-divider" />
+            <p className="section-subtitle mt-4">
               {language === 'fr' 
                 ? 'Mon parcours académique et les certifications qui ont renforcé mes compétences' 
                 : 'My academic background and the certifications that strengthened my skills'}
@@ -149,7 +158,9 @@ const Education = () => {
             {/* Diplômes */}
             <div>
               <div className="flex items-center mb-8">
-                <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20
+                                border border-blue-200/60 dark:border-blue-500/20
+                                flex items-center justify-center mr-4">
                   <GraduationCap className="text-blue-600 dark:text-blue-400" size={24} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
@@ -159,26 +170,35 @@ const Education = () => {
               
               <div className="relative">
                 {/* Timeline */}
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-800/50"></div>
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-800/50" />
                 
                 <div className="space-y-10">
                   {education.map((item, idx) => {
                     const Icon = item.icon;
                     return (
                       <div key={idx} className="relative pl-20">
-                        <div className="absolute left-6 -translate-x-1/2 w-12 h-12 rounded-full bg-white dark:bg-gray-800 border-4 border-blue-500 flex items-center justify-center z-10">
+                        <div className="absolute left-6 -translate-x-1/2 w-12 h-12 rounded-full
+                                        bg-white dark:bg-[#0f172a]/80 backdrop-blur-sm
+                                        border-4 border-blue-500 dark:border-blue-600
+                                        flex items-center justify-center z-10
+                                        shadow-glow-sm">
                           <Icon size={20} className="text-blue-600 dark:text-blue-400" />
                         </div>
                         
-                        <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 dark:bg-gray-900">
-                          <div className="flex justify-between items-start mb-2">
+                        <div className="rounded-2xl p-6 transition-all duration-300 hover:shadow-card-hover
+                                        bg-white dark:bg-[#0f172a]/60 backdrop-blur-sm
+                                        border border-gray-100 dark:border-blue-500/10
+                                        shadow-card-light dark:shadow-card-dark">
+                          <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
                             <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{item.degree}</h3>
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+                                             bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300
+                                             border border-emerald-200/60 dark:border-emerald-500/20">
                               {item.status}
                             </span>
                           </div>
                           
-                          <p className="text-blue-600 font-medium dark:text-blue-400 mb-2">{item.institution}</p>
+                          <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">{item.institution}</p>
                           
                           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
                             <Calendar size={16} className="mr-2" />
@@ -197,8 +217,10 @@ const Education = () => {
             {/* Certifications */}
             <div>
               <div className="flex items-center mb-8">
-                <div className="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
-                  <Award className="text-purple-600 dark:text-purple-400" size={24} />
+                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20
+                                border border-blue-200/60 dark:border-blue-500/20
+                                flex items-center justify-center mr-4">
+                  <Award className="text-blue-600 dark:text-blue-400" size={24} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
                   {language === 'fr' ? 'Certifications' : 'Certifications'}
@@ -211,8 +233,12 @@ const Education = () => {
                   const PlatformIcon = cert.platformIcon;
                   
                   return (
-                    <div key={idx} className="relative">
-                      <div className="relative bg-white rounded-xl shadow-gray-200 shadow-md p-5 h-full dark:bg-gray-900 dark:shadow-gray-800">
+                    <div key={idx} className="relative group">
+                      <div className="relative rounded-xl p-5 h-full transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1
+                                      bg-white dark:bg-[#0f172a]/60 backdrop-blur-sm
+                                      border border-gray-100 dark:border-blue-500/10
+                                      shadow-card-light dark:shadow-card-dark">
+                        {/* Glow and hover effects kept without top border */}
                         <div className="flex justify-between items-start mb-4">
                           <div className={`w-12 h-12 rounded-lg ${cert.bgColor} flex items-center justify-center`}>
                             <Icon size={24} className={cert.color} />
@@ -223,10 +249,12 @@ const Education = () => {
                           </div>
                         </div>
                         
-                        <h4 className="font-bold text-gray-900 mb-2 dark:text-gray-100">{cert.name}</h4>
+                        <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{cert.name}</h4>
                         
                         <div className="flex justify-between items-center mt-4">
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                                           bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300
+                                           border border-blue-200/40 dark:border-blue-500/20">
                             {cert.type}
                           </span>
                         </div>
@@ -236,11 +264,14 @@ const Education = () => {
                 })}
               </div>
               
-              <div className="mt-10 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 dark:from-blue-900/20 dark:to-purple-900/20">
-                <h4 className="font-bold text-gray-900 mb-2 dark:text-gray-100">
+              <div className="mt-10 rounded-2xl p-6
+                              bg-gradient-to-r from-blue-50 to-sky-50
+                              dark:from-blue-900/20 dark:to-sky-900/20
+                              border border-blue-200/60 dark:border-blue-500/15">
+                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">
                   {language === 'fr' ? 'Apprentissage continu' : 'Continuous learning'}
                 </h4>
-                <p className="text-gray-700 text-sm dark:text-gray-300">
+                <p className="text-gray-700 dark:text-gray-300 text-sm">
                   {language === 'fr' 
                     ? 'Je continue à me former sur les nouvelles technologies et frameworks modernes.' 
                     : 'I continue to train on new technologies and modern frameworks.'}
@@ -248,7 +279,7 @@ const Education = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

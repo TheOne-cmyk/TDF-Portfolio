@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, CheckCircle, Palette, Code } from 'lucide-react';
 import { useTranslation } from '../contexts/LanguageContext';
 
@@ -123,26 +124,39 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="animate-on-scroll opacity-0">
+    <section id="experience" className="py-20 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gray-50 dark:bg-[#080d18]" />
+      <div
+        className="orb absolute w-[500px] h-[400px] top-0 right-0 opacity-20 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(37,99,235,0.15) 0%, transparent 70%)' }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-gray-100">
+            <p className="text-sm font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-3">
+              {language === 'fr' ? 'Parcours' : 'Career'}
+            </p>
+            <h2 className="section-title mb-4">
               {language === 'fr' ? 'Expérience Professionnelle' : 'Work Experience'}
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
-              {language === 'fr' ? 'Mon expérience pratique et les compétences développées en entreprise' : 'My practical experience and skills developed in the workplace'}
+            <div className="section-divider" />
+            <p className="section-subtitle mt-4">
+              {language === 'fr'
+                ? 'Mon expérience pratique et les compétences développées en entreprise'
+                : 'My practical experience and skills developed in the workplace'}
             </p>
           </div>
 
           <div className="space-y-8">
             {/* Stage Faya Hotel */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden dark:bg-gray-900">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-white">
-                <div className="flex items-start justify-between">
+            <div className="rounded-2xl overflow-hidden shadow-card-light dark:shadow-card-dark
+                            border border-gray-100 dark:border-blue-500/10
+                            bg-white dark:bg-transparent">
+              <div className="p-8 text-white" style={{ background: 'linear-gradient(135deg, #2563eb, #1d4ed8)' }}>
+                <div className="flex items-start justify-between flex-wrap gap-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
                       <Briefcase size={32} />
@@ -169,7 +183,7 @@ const Experience = () => {
               </div>
 
               {/* Content */}
-              <div className="p-8">
+              <div className="p-8 bg-white dark:bg-[#0f172a]/60 backdrop-blur-sm">
                 <p className="text-gray-700 text-lg mb-8 leading-relaxed dark:text-gray-300">
                   {experience.description}
                 </p>
@@ -177,11 +191,13 @@ const Experience = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Main tasks */}
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-4 dark:text-gray-100">{language === 'fr' ? 'Tâches principales' : 'Main Tasks'}</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                      {language === 'fr' ? 'Tâches principales' : 'Main Tasks'}
+                    </h4>
                     <ul className="space-y-3">
                       {experience.tasks.map((task: string, index: number) => (
                         <li key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700 dark:text-gray-300">{task}</span>
                         </li>
                       ))}
@@ -190,11 +206,13 @@ const Experience = () => {
 
                   {/* Key achievements */}
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-4 dark:text-gray-100">{language === 'fr' ? 'Réalisations clés' : 'Key Achievements'}</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                      {language === 'fr' ? 'Réalisations clés' : 'Key Achievements'}
+                    </h4>
                     <ul className="space-y-3 mb-6">
                       {experience.achievements.map((achievement: string, index: number) => (
                         <li key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700 dark:text-gray-300">{achievement}</span>
                         </li>
                       ))}
@@ -203,13 +221,18 @@ const Experience = () => {
                 </div>
 
                 {/* Developed skills */}
-                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4 dark:text-gray-100">{language === 'fr' ? 'Compétences développées' : 'Skills Developed'}</h4>
+                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-blue-500/10">
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                    {language === 'fr' ? 'Compétences développées' : 'Skills Developed'}
+                  </h4>
                   <div className="flex flex-wrap gap-3">
                     {experience.skills.map((skill: string, index: number) => (
                       <span
                         key={index}
-                        className="bg-blue-100 dark:bg-blue-900/20 text-blue-600 px-4 py-2 rounded-full font-medium hover:bg-blue-200 transition-colors duration-200"
+                        className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300
+                                   px-4 py-2 rounded-full text-sm font-medium
+                                   border border-blue-200/60 dark:border-blue-500/20
+                                   hover:bg-blue-100 dark:hover:bg-blue-800/30 transition-colors duration-200"
                       >
                         {skill}
                       </span>
@@ -220,10 +243,11 @@ const Experience = () => {
             </div>
 
             {/* Travail Freelance */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden dark:bg-gray-900">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-white">
-                <div className="flex items-start justify-between">
+            <div className="rounded-2xl overflow-hidden shadow-card-light dark:shadow-card-dark
+                            border border-gray-100 dark:border-blue-500/10">
+              {/* Header gradient */}
+              <div className="p-8 text-white" style={{ background: 'linear-gradient(135deg, #2563eb, #1d4ed8)' }}>
+                <div className="flex items-start justify-between flex-wrap gap-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
                       <Palette size={32} />
@@ -249,7 +273,7 @@ const Experience = () => {
               </div>
 
               {/* Content */}
-              <div className="p-8">
+              <div className="p-8 bg-white dark:bg-[#0f172a]/60 backdrop-blur-sm">
                 <p className="text-gray-700 text-lg mb-8 leading-relaxed dark:text-gray-300">
                   {freelanceWork.description}
                 </p>
@@ -258,7 +282,7 @@ const Experience = () => {
                   {/* Design Services */}
                   <div>
                     <div className="flex items-center mb-4">
-                      <Palette className="w-6 h-6 text-purple-600 mr-3" />
+                      <Palette className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
                       <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                         {freelanceWork.designServices.title}
                       </h4>
@@ -266,7 +290,7 @@ const Experience = () => {
                     <ul className="space-y-3">
                       {freelanceWork.designServices.items.map((service: string, index: number) => (
                         <li key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-blue-500 dark:text-blue-400 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700 dark:text-gray-300">{service}</span>
                         </li>
                       ))}
@@ -276,7 +300,7 @@ const Experience = () => {
                   {/* Development Services */}
                   <div>
                     <div className="flex items-center mb-4">
-                      <Code className="w-6 h-6 text-blue-600 mr-3" />
+                      <Code className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
                       <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                         {freelanceWork.developmentServices.title}
                       </h4>
@@ -284,7 +308,7 @@ const Experience = () => {
                     <ul className="space-y-3">
                       {freelanceWork.developmentServices.items.map((service: string, index: number) => (
                         <li key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700 dark:text-gray-300">{service}</span>
                         </li>
                       ))}
@@ -293,15 +317,18 @@ const Experience = () => {
                 </div>
 
                 {/* Clients */}
-                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4 dark:text-gray-100">
+                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-blue-500/10">
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                     {language === 'fr' ? 'Types de clients' : 'Client Types'}
                   </h4>
                   <div className="flex flex-wrap gap-3">
                     {freelanceWork.clients.map((client: string, index: number) => (
                       <span
                         key={index}
-                        className="bg-blue-100 dark:bg-blue-900/20 text-blue-600 px-4 py-2 rounded-full font-medium hover:bg-purple-200 transition-colors duration-200"
+                        className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300
+                                   px-4 py-2 rounded-full text-sm font-medium
+                                   border border-blue-200/60 dark:border-blue-500/20
+                                   hover:bg-blue-100 dark:hover:bg-blue-800/30 transition-colors duration-200"
                       >
                         {client}
                       </span>
@@ -314,18 +341,20 @@ const Experience = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4 dark:text-gray-300">
-              {language === 'fr' ? 'Intéressé par mon profil ? Discutons de votre prochain projet !' : 'Interested in my profile? Let\'s discuss your next project!'}
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              {language === 'fr'
+                ? 'Intéressé par mon profil ? Discutons de votre prochain projet !'
+                : 'Interested in my profile? Let\'s discuss your next project!'}
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              className="btn-primary gap-2 text-sm"
             >
-              <Briefcase className="mr-2 w-5 h-5" />
+              <Briefcase className="w-4 h-4" />
               {language === 'fr' ? 'Collaborons ensemble' : 'Let\'s collaborate'}
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

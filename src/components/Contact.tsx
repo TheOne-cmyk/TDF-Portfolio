@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useTranslation } from '../contexts/LanguageContext';
@@ -61,14 +62,14 @@ const Contact = () => {
     {
       icon: Phone,
       label: language === 'fr' ? 'Téléphone' : 'Phone',
-      value: '+237 694 983 862',
-      href: 'tel:+237694983862',
+      value: '+1 418 709 8053',
+      href: 'tel:++1 418 709 8053',
       color: 'text-green-600'
     },
     {
       icon: MapPin,
       label: language === 'fr' ? 'Localisation' : 'Location',
-      value: language === 'fr' ? 'Douala, Cameroun' : 'Douala, Cameroon',
+      value: language === 'fr' ? 'Basé à Rivière-du-Loup, QC' : 'Based in Rivière-du-Loup, QC',
       href: '#',
       color: 'text-red-600'
     }
@@ -76,16 +77,16 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/TheOne-cmyk',
-      color: 'hover:bg-gray-900'
-    },
-    {
       icon: Linkedin,
       label: 'LinkedIn',
       href: 'https://linkedin.com/in/warren-tsobgou-21423936',
       color: 'hover:bg-blue-600'
+    },
+    {
+      icon: Github,
+      label: 'GitHub',
+      href: 'https://github.com/TheOne-cmyk',
+      color: 'hover:bg-gray-900'
     },
     {
       icon: MessageCircle,
@@ -97,21 +98,27 @@ const Contact = () => {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center bg-white p-12 rounded-2xl shadow-lg max-w-3xl mx-auto dark:bg-gray-900">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <section id="contact" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gray-50 dark:bg-[#080d18]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center rounded-2xl p-12 max-w-3xl mx-auto
+                          bg-white dark:bg-[#0f172a]/60 backdrop-blur-md
+                          border border-gray-100 dark:border-blue-500/10
+                          shadow-card-light dark:shadow-card-dark">
+            <div className="w-20 h-20 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-gray-100">{language === 'fr' ? 'Message envoyé avec succès !' : 'Message sent successfully!'}</h2>
-            <p className="text-gray-600 mb-8 dark:text-gray-300">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              {language === 'fr' ? 'Message envoyé avec succès !' : 'Message sent successfully!'}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
               {language === 'fr' ? 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.' : 'Thank you for your message. I will get back to you as soon as possible.'}
             </p>
             <button
               onClick={() => setIsSubmitted(false)}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
+              className="btn-primary text-sm px-6 py-3"
             >
               {language === 'fr' ? 'Envoyer un nouveau message' : 'Send a new message'}
             </button>
@@ -122,24 +129,36 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="animate-on-scroll opacity-0">
+    <section id="contact" className="py-20 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gray-50 dark:bg-[#080d18]" />
+      <div
+        className="orb absolute w-[500px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)' }}
+      />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-gray-100">
+            <p className="text-sm font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-3">
+              {language === 'fr' ? 'Travaillons ensemble' : 'Let\'s work together'}
+            </p>
+            <h2 className="section-title mb-4">
               {language === 'fr' ? 'Prenons Contact' : 'Contact Me'}
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+            <div className="section-divider" />
+            <p className="section-subtitle mt-4">
               {language === 'fr' ? "Une idée de projet ? Une opportunité professionnelle ? N'hésitez pas à me contacter. Je réponds généralement sous 24h." : 'A project idea? A professional opportunity? Feel free to contact me. I usually reply within 24h.'}
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Informations de contact */}
+            {/* Contact info card */}
             <div className="lg:col-span-1">
-              <div className="bg-white p-8 rounded-2xl shadow-lg dark:bg-gray-900">
+              <div className="rounded-2xl p-6 md:p-8
+                              bg-white dark:bg-[#0f172a]/60 backdrop-blur-md
+                              border border-gray-100 dark:border-blue-500/10
+                              shadow-card-light dark:shadow-card-dark">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-100">{language === 'fr' ? 'Mes Coordonnées' : 'My Contact Info'}</h3>
                 
                 <div className="space-y-6">
@@ -167,22 +186,35 @@ const Contact = () => {
                 {/* Réseaux sociaux */}
                 <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
                   <h4 className="font-semibold text-gray-900 mb-4 dark:text-gray-100">{language === 'fr' ? 'Suivez-moi' : 'Follow me'}</h4>
-                  <div className="flex space-x-4">
-                    {socialLinks.map((social, index) => {
-                      const IconComponent = social.icon;
-                      return (
-                        <a
-                          key={index}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center hover:text-white transition-all duration-200 ${social.color} dark:bg-gray-800 dark:text-gray-200`}
-                          aria-label={social.label}
-                        >
-                          <IconComponent size={20} />
-                        </a>
-                      );
-                    })}
+                  <div className="space-y-4">
+                    <a
+                      href="https://linkedin.com/in/warren-tsobgou-21423936"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin size={20} />
+                      {language === 'fr' ? 'Voir mon LinkedIn' : 'View my LinkedIn'}
+                    </a>
+
+                    <div className="flex space-x-4">
+                      {socialLinks.map((social, index) => {
+                        const IconComponent = social.icon;
+                        return (
+                          <a
+                            key={index}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center hover:text-white transition-all duration-200 ${social.color} dark:bg-gray-800 dark:text-gray-200`}
+                            aria-label={social.label}
+                          >
+                            <IconComponent size={20} />
+                          </a>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
 
@@ -199,9 +231,12 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Formulaire de contact */}
+            {/* Form card */}
             <div className="lg:col-span-2">
-              <div className="bg-white p-8 rounded-2xl shadow-lg dark:bg-gray-900">
+              <div className="rounded-2xl p-6 md:p-8
+                              bg-white dark:bg-[#0f172a]/60 backdrop-blur-md
+                              border border-gray-100 dark:border-blue-500/10
+                              shadow-card-light dark:shadow-card-dark">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-100">{language === 'fr' ? 'Envoyez-moi un message' : 'Send me a message'}</h3>
                 
                 {submitError && (
@@ -284,7 +319,11 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full bg-blue-600 dark:bg-blue-500 text-white py-3 px-6 rounded-xl font-semibold
+                               hover:bg-blue-700 dark:hover:bg-blue-600
+                               focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                               transition-all duration-200 shadow-glow hover:shadow-glow-lg
+                               disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {isSubmitting ? (
                       <>
@@ -300,7 +339,9 @@ const Contact = () => {
                   </button>
                 </form>
 
-                <div className="mt-6 p-4 bg-gray-50 rounded-lg dark:bg-gray-900 dark:border dark:border-gray-800">
+                <div className="mt-6 p-4 rounded-xl
+                                bg-blue-50 dark:bg-blue-900/15
+                                border border-blue-100 dark:border-blue-500/15">
                   <p className="text-sm text-gray-600 dark:text-gray-300">
                     <strong>{language === 'fr' ? 'Note :' : 'Note:'}</strong> {language === 'fr' ? 'Vous pouvez aussi me contacter directement par email ou téléphone pour une réponse plus rapide.' : 'You can also contact me directly by email or phone for a faster response.'}
                   </p>
@@ -308,7 +349,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

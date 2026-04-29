@@ -1,205 +1,251 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useTranslation } from '../contexts/LanguageContext';
+import { Code2, Globe, Wrench, CheckCircle2, ExternalLink } from 'lucide-react';
+
+const serviceIcons = [Code2, Globe, Wrench];
 
 const services = [
   {
-    title: {
-      fr: 'Développement Front-End',
-      en: 'Front-End Development',
-    },
+    icon: Code2,
+    gradient: 'from-indigo-500 to-violet-600',
+    glow: 'rgba(99,102,241,0.3)',
+    title: { fr: 'Développement de Logiciels (SaaS)', en: 'Software Development (SaaS)' },
     description: {
-      fr: 'Interfaces modernes, rapides et accessibles avec React et Tailwind CSS.',
-      en: 'Modern, fast, and accessible interfaces with React and Tailwind CSS.',
+      fr: 'Automatisation de vos processus métiers, gestion de stocks et analyse de données avec des technologies robustes comme Laravel et React.',
+      en: 'Automation of business processes, inventory management, and data analytics with robust technologies like Laravel and React.',
     },
     features: [
-      { fr: 'React/Next.js', en: 'React/Next.js' },
-      { fr: 'Design responsive', en: 'Responsive design' },
-      { fr: 'Performance et SEO', en: 'Performance and SEO' },
+      { fr: 'Automatisation & workflows', en: 'Automation & workflows' },
+      { fr: 'Tableaux de bord & analytics', en: 'Dashboards & analytics' },
+      { fr: 'Auth, rôles, sécurité', en: 'Auth, roles, security' },
     ],
   },
   {
-    title: {
-      fr: 'Développement Back-End',
-      en: 'Back-End Development',
-    },
+    icon: Globe,
+    gradient: 'from-cyan-500 to-blue-600',
+    glow: 'rgba(6,182,212,0.3)',
+    title: { fr: 'Sites Vitrines Haute Performance', en: 'High-Performance Showcase Websites' },
     description: {
-      fr: 'APIs robustes et sécurisées, bases de données et logique métier.',
-      en: 'Robust and secure APIs, databases, and business logic.',
+      fr: 'Création de sites web rapides, sécurisés et optimisés pour le SEO, garantissant une visibilité maximale sur Google.',
+      en: 'Fast, secure, SEO-optimized websites designed to maximize your visibility on Google.',
     },
     features: [
-      { fr: 'Node/PHP', en: 'Node/PHP' },
-      { fr: 'REST APIs', en: 'REST APIs' },
-      { fr: 'Bases de données SQL', en: 'SQL Databases' },
+      { fr: 'SEO technique & contenu', en: 'Technical & content SEO' },
+      { fr: 'Performance & accessibilité', en: 'Performance & accessibility' },
+      { fr: 'Sécurité & bonnes pratiques', en: 'Security & best practices' },
     ],
   },
   {
-    title: {
-      fr: 'Intégration et Déploiement',
-      en: 'Integration & Deployment',
-    },
+    icon: Wrench,
+    gradient: 'from-orange-500 to-amber-500',
+    glow: 'rgba(249,115,22,0.3)',
+    title: { fr: 'Maintenance & Optimisation', en: 'Maintenance & Optimization' },
     description: {
-      fr: 'Mise en ligne fiable et automatisée sur des environnements cloud.',
-      en: 'Reliable and automated deployment to cloud environments.',
+      fr: 'Audit de performance, mise à jour de sécurité et amélioration continue pour que votre outil reste votre meilleur atout 24h/24.',
+      en: 'Performance audits, security updates, and continuous improvements so your product stays your best asset 24/7.',
     },
     features: [
-      { fr: 'CI/CD', en: 'CI/CD' },
-      { fr: 'Docker', en: 'Docker' },
-      { fr: 'Hébergements modernes', en: 'Modern hosting' },
-    ],
-  },
-  {
-    title: {
-      fr: 'Design Graphique',
-      en: 'Graphic Design',
-    },
-    description: {
-      fr: 'Création d’identités visuelles et supports imprimés de haute qualité.',
-      en: 'Creation of visual identities and high-quality print materials.',
-    },
-    features: [
-      { fr: 'Flyers, affiches, bannières, pancartes, plaques', en: 'Flyers, posters, banners, signs, plaques' },
-      { fr: 'Cartes de visite et de mariage', en: 'Business and wedding cards' },
-      { fr: 'Montages photos, banderoles', en: 'Photo montages, banners' },
-      { fr: 'Logos et chartes graphiques', en: 'Logos and graphic charters' },
-    ],
-  },
-  {
-    title: {
-      fr: 'Maquettes et Design Patterns (Figma)',
-      en: 'Mockups & Design Patterns (Figma)',
-    },
-    description: {
-      fr: 'Conception de maquettes visuelles et systèmes de design réutilisables.',
-      en: 'Design of visual mockups and reusable design systems.',
-    },
-    features: [
-      { fr: 'Wireframes et prototypes interactifs', en: 'Wireframes and interactive prototypes' },
-      { fr: 'Design System et UI Kit', en: 'Design System and UI Kit' },
-      { fr: 'Design patterns cohérents avec Figma', en: 'Consistent design patterns with Figma' },
+      { fr: 'Corrections & évolutions', en: 'Fixes & improvements' },
+      { fr: 'Monitoring & stabilité', en: 'Monitoring & reliability' },
+      { fr: 'Optimisation SEO/perf', en: 'SEO/performance optimization' },
     ],
   },
 ];
 
 const sampleWorks = [
-  {
-    title: {
-      fr: 'Meilleures Crêpes',
-      en: 'Best Crepes',
-    },
-    image: '/images/services/best crepes.jpg',
-    link: '/images/services/best crepes.jpg'
-  },
-  {
-    title: {
-      fr: 'Étiquettes Jus',
-      en: 'Juice Labels',
-    },
-    image: '/images/services/ettiquettes jus.png',
-    link: '/images/services/ettiquettes jus.png'
-  },
-  {
-    title: {
-      fr: 'Soirée Blackout',
-      en: 'Blackout Party',
-    },
-    image: '/images/services/flyer blackout party.jpg',
-    link: '/images/services/flyer blackout party.jpg'
-  },
-  {
-    title: {
-      fr: 'Etiquette de jus',
-      en: 'Juice etiquette',
-    },
-    image: '/images/services/juice etiquette.png',
-    link: '/images/services/juice etiquette.png'
-  },
-  {
-    title: {
-      fr: 'Jus Lety',
-      en: 'Lety Juice',
-    },
-    image: '/images/services/flyer jus lety.png',
-    link: '/images/services/flyer jus lety.png'
-  },
-  {
-    title: {
-      fr: 'Vente de Tableau blanc',
-      en: 'Whiteboard Sale',
-    },
-    image: '/images/services/flyer vente tableau blanc.png',
-    link: '/images/services/flyer vente tableau blanc.png'
-  },
-  {
-    title: {
-      fr: 'Arielo',
-      en: 'Arielo',
-    },
-    image: '/images/services/flyr arielo.jpg',
-    link: '/images/services/flyr arielo.jpg'
-  },
-  {
-    title: {
-      fr: 'Cuisine Délice',
-      en: 'Délicious Cuisine',
-    },
-    image: '/images/services/flyer cuisine.png',
-    link: '/images/services/flyer cuisine.png'
-  }
+  { title: { fr: 'Meilleures Crêpes', en: 'Best Crepes' }, image: '/images/services/best crepes.webp', link: '/images/services/best crepes.webp' },
+  { title: { fr: 'Étiquettes Jus', en: 'Juice Labels' }, image: '/images/services/ettiquettes jus.webp', link: '/images/services/ettiquettes jus.webp' },
+  { title: { fr: 'Soirée Blackout', en: 'Blackout Party' }, image: '/images/services/flyer blackout party.webp', link: '/images/services/flyer blackout party.webp' },
+  { title: { fr: 'Etiquette de jus', en: 'Juice Label' }, image: '/images/services/juice etiquette.webp', link: '/images/services/juice etiquette.webp' },
+  { title: { fr: 'Jus Lety', en: 'Lety Juice' }, image: '/images/services/flyer jus lety.webp', link: '/images/services/flyer jus lety.webp' },
+  { title: { fr: 'Vente tableau blanc', en: 'Whiteboard Sale' }, image: '/images/services/flyer vente tableau blanc.webp', link: '/images/services/flyer vente tableau blanc.webp' },
+  { title: { fr: 'Arielo', en: 'Arielo' }, image: '/images/services/flyr arielo.webp', link: '/images/services/flyr arielo.webp' },
+  { title: { fr: 'Cuisine Délice', en: 'Delicious Cuisine' }, image: '/images/services/flyer cuisine.webp', link: '/images/services/flyer cuisine.webp' },
 ];
 
 const Services: React.FC = () => {
   const { language } = useTranslation();
+
   return (
-    <section id="services" className="py-20 bg-gray-50 animate-on-scroll dark:bg-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-gray-100">
-            {language === 'fr' ? 'Services' : 'Services'}
-          </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-          <p className="mt-6 text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+    <section id="services" className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-surface-50 dark:bg-[#080d18]" />
+      <div
+        className="orb absolute w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)' }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}
+            className="text-sm font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-3"
+          >
+            {language === 'fr' ? 'Ce que je fais' : 'What I do'}
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
+            className="section-title mb-4"
+          >
+            Services
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+            className="section-subtitle"
+          >
             {language === 'fr'
-              ? 'Je propose des solutions complètes, de la conception à la mise en production. Et parallèlement des services de design graphiques.'
-              : 'I offer complete solutions, from design to production. Also, graphic design services.'}
-          </p>
+              ? 'Des services pensés pour générer des résultats concrets : automatiser, gagner en visibilité et maintenir des performances élevées.'
+              : 'Services designed for real outcomes: automate, increase visibility, and keep performance high.'}
+          </motion.p>
+          <div className="section-divider" />
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-xl border border-blue-100 p-6 shadow-sm hover:shadow-md transition-shadow duration-200 dark:bg-gray-900 dark:border-gray-800">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{service.title[language]}</h3>
-              <p className="mt-2 text-gray-600 dark:text-gray-300">{service.description[language]}</p>
-              <ul className="mt-4 space-y-2">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center text-sm text-gray-700 dark:text-gray-300">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
-                    {feature[language]}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+
+        {/* Service Cards */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-20">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.12 }}
+                whileHover={{ y: -6 }}
+                className="group relative p-6 rounded-2xl overflow-hidden
+                           glass-card
+                           hover:shadow-card-hover dark:hover:shadow-card-dark-hover
+                           transition-all duration-300"
+              >
+                {/* Glow blob and hover effects kept without top border line */}
+
+                {/* Glow blob */}
+                <div
+                  className="absolute top-4 right-4 w-20 h-20 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl pointer-events-none"
+                  style={{ background: service.glow }}
+                />
+
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center mb-5 shadow-glow-sm group-hover:shadow-glow transition-shadow duration-300">
+                  <Icon size={22} className="text-white" />
+                </div>
+
+                {/* Title & Description */}
+                <h3 className="font-display font-bold text-base text-gray-900 dark:text-white mb-2 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors duration-200">
+                  {service.title[language as 'fr' | 'en']}
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+                  {service.description[language as 'fr' | 'en']}
+                </p>
+
+                {/* Feature list */}
+                <ul className="space-y-2">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                      <CheckCircle2 size={14} className="text-primary-500 flex-shrink-0" />
+                      {feature[language as 'fr' | 'en']}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            );
+          })}
         </div>
-        <div className="mt-16">
+
+        {/* Graphic Works Gallery */}
+        <div>
           <div className="text-center mb-10">
-            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 dark:text-gray-100">{language === 'fr' ? 'Quelques réalisations' : 'Some Works'}</h3>
-            <p className="mt-4 text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
-              {language === 'fr' ? 'Ici vous avez un aperçu de quelques unes de mes réalisations graphiques' : 'Here is a preview of some of my graphic works'}
+            <motion.h3
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5 }}
+              className="font-display font-bold text-2xl text-gray-900 dark:text-white mb-2"
+            >
+              {language === 'fr' ? 'Réalisations Graphiques' : 'Graphic Design Works'}
+            </motion.h3>
+            <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl mx-auto">
+              {language === 'fr'
+                ? 'Un aperçu de quelques-unes de mes créations — flyers, étiquettes, visuels marketing.'
+                : 'A preview of some of my graphic creations — flyers, labels, marketing visuals.'}
             </p>
+            <div className="section-divider" />
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {sampleWorks.map((work, index) => (
-              <a key={index} href={work.link} className="group block bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200 dark:bg-gray-900 dark:border-gray-800">
-                <div className="relative h-40 bg-gray-100 dark:bg-gray-800">
-                  <img src={work.image} alt={work.title[language]} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200"></div>
+              <motion.a
+                key={index}
+                href={work.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
+                whileHover={{ y: -4 }}
+                className="group relative block rounded-xl overflow-hidden
+                           glass-card
+                           hover:shadow-card-hover dark:hover:shadow-card-dark-hover
+                           transition-all duration-300"
+              >
+                <div className="relative h-44 bg-gray-100 dark:bg-white/5 overflow-hidden">
+                  <img
+                    src={work.image}
+                    alt={`${language === 'fr' ? 'Création graphique' : 'Graphic design'}: ${work.title[language as 'fr' | 'en']}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
+                      <ExternalLink size={13} className="text-white" />
+                    </div>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 dark:text-gray-100">{work.title[language]}</h4>
+                <div className="px-4 py-3">
+                  <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
+                    {work.title[language as 'fr' | 'en']}
+                  </h4>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
+
+        {/* Free Analysis Promo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-card border border-primary-200 dark:border-primary-800/30">
+            <div className="flex -space-x-2">
+              {[...Array(5)].map((_, i) => (
+                <div
+                  key={i}
+                  className="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center border-2 border-white dark:border-gray-900"
+                  style={{ animationDelay: `${i * 0.15}s` }}
+                >
+                  <svg className="w-3 h-3 text-yellow-800" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </div>
+              ))}
+            </div>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+              {language === 'fr'
+                ? 'Développement et analyse gratuits pour tous les nouveaux clients !'
+                : 'Development and analysis are free for all new clients!'}
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

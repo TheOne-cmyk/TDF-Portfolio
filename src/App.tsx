@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Services from './components/Services';
 import Footer from './components/Footer';
+import WhyChooseMe from './components/WhyChooseMe';
 
 const AppContent = () => {
   useEffect(() => {
@@ -56,7 +57,7 @@ const AppContent = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0a0f1c] dark:text-gray-100 transition-colors duration-300">
       <Header />
       <main>
         <Hero />
@@ -66,6 +67,7 @@ const AppContent = () => {
         <Education />
         <Experience />
         <Projects />
+        <WhyChooseMe />
         <Contact />
       </main>
       <Footer />

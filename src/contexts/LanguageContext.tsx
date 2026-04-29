@@ -19,6 +19,10 @@ type Translations = {
   hero: {
     title: string;
     description: string;
+    h1: string;
+    subtitle: string;
+    bookAudit: string;
+    viewCaseStudies: string;
     viewProjects: string;
     contactMe: string;
     viewCV: string;
