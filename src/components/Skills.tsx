@@ -41,14 +41,14 @@ const Skills = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const technicalSkills: TechnicalSkill[] = [
-    { name: 'HTML5',       icon: <FaHtml5 size={44} />,       accent: '#e34f26' },
-    { name: 'CSS3',        icon: <FaCss3Alt size={44} />,      accent: '#264de4' },
-    { name: 'JavaScript',  icon: <FaJs size={44} />,           accent: '#f7df1e' },
-    { name: 'TypeScript',  icon: <SiTypescript size={44} />,   accent: '#3178c6' },
-    { name: 'Python',      icon: <SiPython size={44} />,       accent: '#4b8bbe' },
-    { name: 'PHP',         icon: <FaPhp size={44} />,          accent: '#777bb4' },
-    { name: 'React',       icon: <FaReact size={44} />,        accent: '#61dafb' },
-    { name: 'Tailwind CSS',icon: <SiTailwindcss size={44} />,  accent: '#38bdf8' },
+    { name: 'HTML5', icon: <FaHtml5 size={44} />, accent: '#e34f26' },
+    { name: 'CSS3', icon: <FaCss3Alt size={44} />, accent: '#264de4' },
+    { name: 'JavaScript', icon: <FaJs size={44} />, accent: '#f7df1e' },
+    { name: 'TypeScript', icon: <SiTypescript size={44} />, accent: '#3178c6' },
+    { name: 'Python', icon: <SiPython size={44} />, accent: '#4b8bbe' },
+    { name: 'PHP', icon: <FaPhp size={44} />, accent: '#777bb4' },
+    { name: 'React', icon: <FaReact size={44} />, accent: '#61dafb' },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss size={44} />, accent: '#38bdf8' },
   ];
 
   const otherSkills: OtherSkillCategory[] = [
@@ -56,8 +56,8 @@ const Skills = () => {
       category: 'Suite Office',
       icon: <SiMicrosoftoffice size={20} className="text-red-500" />,
       skills: [
-        { name: 'Word',       icon: <SiMicrosoftword size={15} className="text-blue-600" /> },
-        { name: 'Excel',      icon: <SiMicrosoftexcel size={15} className="text-green-600" /> },
+        { name: 'Word', icon: <SiMicrosoftword size={15} className="text-blue-600" /> },
+        { name: 'Excel', icon: <SiMicrosoftexcel size={15} className="text-green-600" /> },
         { name: 'PowerPoint', icon: <SiMicrosoftpowerpoint size={15} className="text-orange-500" /> },
       ],
     },
@@ -65,18 +65,18 @@ const Skills = () => {
       category: 'Suite Adobe',
       icon: <SiAdobe size={20} className="text-red-600" />,
       skills: [
-        { name: 'Photoshop',  icon: <SiAdobephotoshop size={15} className="text-blue-600" /> },
-        { name: 'Illustrator',icon: <SiAdobeillustrator size={15} className="text-orange-600" /> },
-        { name: 'InDesign',   icon: <SiAdobeindesign size={15} className="text-pink-600" /> },
+        { name: 'Photoshop', icon: <SiAdobephotoshop size={15} className="text-blue-600" /> },
+        { name: 'Illustrator', icon: <SiAdobeillustrator size={15} className="text-orange-600" /> },
+        { name: 'InDesign', icon: <SiAdobeindesign size={15} className="text-pink-600" /> },
       ],
     },
     {
       category: 'Outils',
       icon: <FaGitAlt size={20} className="text-orange-600" />,
       skills: [
-        { name: 'Canva',   icon: <SiCanva size={15} className="text-teal-400" /> },
-        { name: 'Figma',   icon: <SiFigma size={15} className="text-purple-500" /> },
-        { name: 'Git',     icon: <FaGitAlt size={15} className="text-red-500" /> },
+        { name: 'Canva', icon: <SiCanva size={15} className="text-teal-400" /> },
+        { name: 'Figma', icon: <SiFigma size={15} className="text-purple-500" /> },
+        { name: 'Git', icon: <FaGitAlt size={15} className="text-red-500" /> },
         { name: 'VS Code', icon: <SiVisualstudiocode size={15} className="text-blue-500" /> },
       ],
     },
@@ -84,7 +84,7 @@ const Skills = () => {
       category: 'Bases de données',
       icon: <FaDatabase size={20} className="text-blue-500" />,
       skills: [
-        { name: 'MySQL',      icon: <SiMysql size={15} className="text-blue-600" /> },
+        { name: 'MySQL', icon: <SiMysql size={15} className="text-blue-600" /> },
         { name: 'PostgreSQL', icon: <SiPostgresql size={15} className="text-blue-700" /> },
       ],
     },
@@ -295,11 +295,10 @@ const Skills = () => {
                         setTimeout(() => { setCurrentSlide(index); setIsAnimating(false); }, 300);
                       }
                     }}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      index === currentSlide
+                    className={`h-1.5 rounded-full transition-all duration-300 ${index === currentSlide
                         ? 'w-8 bg-primary-500'
                         : 'w-3 bg-gray-200 dark:bg-white/20 hover:bg-gray-400'
-                    }`}
+                      }`}
                     disabled={isAnimating}
                   />
                 ))}

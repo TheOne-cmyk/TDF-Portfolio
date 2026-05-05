@@ -68,17 +68,6 @@ const services = [
   },
 ];
 
-const sampleWorks = [
-  { title: { fr: 'Meilleures Crêpes', en: 'Best Crepes' }, image: '/images/services/best crepes.webp', link: '/images/services/best crepes.webp' },
-  { title: { fr: 'Étiquettes Jus', en: 'Juice Labels' }, image: '/images/services/ettiquettes jus.webp', link: '/images/services/ettiquettes jus.webp' },
-  { title: { fr: 'Soirée Blackout', en: 'Blackout Party' }, image: '/images/services/flyer blackout party.webp', link: '/images/services/flyer blackout party.webp' },
-  { title: { fr: 'Etiquette de jus', en: 'Juice Label' }, image: '/images/services/juice etiquette.webp', link: '/images/services/juice etiquette.webp' },
-  { title: { fr: 'Jus Lety', en: 'Lety Juice' }, image: '/images/services/flyer jus lety.webp', link: '/images/services/flyer jus lety.webp' },
-  { title: { fr: 'Vente tableau blanc', en: 'Whiteboard Sale' }, image: '/images/services/flyer vente tableau blanc.webp', link: '/images/services/flyer vente tableau blanc.webp' },
-  { title: { fr: 'Arielo', en: 'Arielo' }, image: '/images/services/flyr arielo.webp', link: '/images/services/flyr arielo.webp' },
-  { title: { fr: 'Cuisine Délice', en: 'Delicious Cuisine' }, image: '/images/services/flyer cuisine.webp', link: '/images/services/flyer cuisine.webp' },
-];
-
 const Services: React.FC = () => {
   const { language } = useTranslation();
 
@@ -137,8 +126,6 @@ const Services: React.FC = () => {
                            hover:shadow-card-hover dark:hover:shadow-card-dark-hover
                            transition-all duration-300"
               >
-                {/* Glow blob and hover effects kept without top border line */}
-
                 {/* Glow blob */}
                 <div
                   className="absolute top-4 right-4 w-20 h-20 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl pointer-events-none"
@@ -172,66 +159,6 @@ const Services: React.FC = () => {
           })}
         </div>
 
-        {/* Graphic Works Gallery */}
-        <div>
-          <div className="text-center mb-10">
-            <motion.h3
-              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5 }}
-              className="font-display font-bold text-2xl text-gray-900 dark:text-white mb-2"
-            >
-              {language === 'fr' ? 'Réalisations Graphiques' : 'Graphic Design Works'}
-            </motion.h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm max-w-xl mx-auto">
-              {language === 'fr'
-                ? 'Un aperçu de quelques-unes de mes créations — flyers, étiquettes, visuels marketing.'
-                : 'A preview of some of my graphic creations — flyers, labels, marketing visuals.'}
-            </p>
-            <div className="section-divider" />
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {sampleWorks.map((work, index) => (
-              <motion.a
-                key={index}
-                href={work.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.06 }}
-                whileHover={{ y: -4 }}
-                className="group relative block rounded-xl overflow-hidden
-                           glass-card
-                           hover:shadow-card-hover dark:hover:shadow-card-dark-hover
-                           transition-all duration-300"
-              >
-                <div className="relative h-44 bg-gray-100 dark:bg-white/5 overflow-hidden">
-                  <img
-                    src={work.image}
-                    alt={`${language === 'fr' ? 'Création graphique' : 'Graphic design'}: ${work.title[language as 'fr' | 'en']}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
-                      <ExternalLink size={13} className="text-white" />
-                    </div>
-                  </div>
-                </div>
-                <div className="px-4 py-3">
-                  <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
-                    {work.title[language as 'fr' | 'en']}
-                  </h4>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-        </div>
-
         {/* Free Analysis Promo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -256,8 +183,8 @@ const Services: React.FC = () => {
             </div>
             <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
               {language === 'fr'
-                ? 'Développement et analyse gratuits pour tous les nouveaux clients !'
-                : 'Development and analysis are free for all new clients!'}
+                ? 'Analyse gratuite pour tous les nouveaux clients !'
+                : 'Free analysis for all new clients!'}
             </span>
           </div>
         </motion.div>

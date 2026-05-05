@@ -49,10 +49,10 @@ const WhyChooseMe: React.FC = () => {
                 <MapPin size={22} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2 dark:text-gray-100">
-                {language === 'fr' ? 'Accompagnement Local.' : 'Local Support.'}
+                {language === 'fr' ? 'Suivi permanent.' : 'Local Support.'}
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                {language === 'fr' ? 'Je ne livre pas seulement du code ; je vous accompagne dans l\'évolution de votre solution ici, au Québec.' : 'I don\'t just deliver code; I support you in the evolution of your solution locally.'}
+                {language === 'fr' ? 'Je ne livre pas seulement du code ; je vous accompagne dans l\'évolution de votre solution digitale.' : 'I don\'t just deliver code; I support you in the evolution of your solution locally.'}
               </p>
             </div>
           </div>

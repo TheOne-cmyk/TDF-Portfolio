@@ -7,14 +7,14 @@ const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   const quickLinks = [
-    { href: '#accueil',    label: language === 'fr' ? 'Accueil'        : 'Home' },
-    { href: '#apropos',    label: language === 'fr' ? 'À Propos'       : 'About' },
-    { href: '#competences',label: language === 'fr' ? 'Compétences'    : 'Skills' },
-    { href: '#services',   label: language === 'fr' ? 'Services'       : 'Services' },
-    { href: '#formations', label: language === 'fr' ? 'Formations'     : 'Education' },
-    { href: '#experience', label: language === 'fr' ? 'Expérience'     : 'Experience' },
-    { href: '#projets',    label: language === 'fr' ? 'Études de cas'  : 'Case Studies' },
-    { href: '#contact',    label: language === 'fr' ? 'Contact'        : 'Contact' },
+    { href: '#accueil', label: language === 'fr' ? 'Accueil' : 'Home' },
+    { href: '#apropos', label: language === 'fr' ? 'À Propos' : 'About' },
+    { href: '#competences', label: language === 'fr' ? 'Compétences' : 'Skills' },
+    { href: '#services', label: language === 'fr' ? 'Services' : 'Services' },
+    { href: '#formations', label: language === 'fr' ? 'Formations' : 'Education' },
+    { href: '#experience', label: language === 'fr' ? 'Expérience' : 'Experience' },
+    { href: '#projets', label: language === 'fr' ? 'Études de cas' : 'Case Studies' },
+    { href: '#contact', label: language === 'fr' ? 'Contact' : 'Contact' },
   ];
 
   return (
@@ -32,9 +32,9 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img 
-                src="/logo.png" 
-                alt="Logo TDF Portfolio - Développeur Full-Stack" 
+              <img
+                src="/logo.png"
+                alt="Logo TDF Portfolio - Développeur Full-Stack"
                 className="w-11 h-11 object-contain"
               />
               <span className="font-display font-bold text-gray-900 dark:text-white">

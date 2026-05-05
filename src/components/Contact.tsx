@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useTranslation } from '../contexts/LanguageContext';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
   const { language } = useTranslation();
@@ -64,14 +65,14 @@ const Contact = () => {
       label: language === 'fr' ? 'Téléphone' : 'Phone',
       value: '+1 418 709 8053',
       href: 'tel:++1 418 709 8053',
-      color: 'text-green-600'
+      color: 'text-blue-600'
     },
     {
       icon: MapPin,
       label: language === 'fr' ? 'Localisation' : 'Location',
-      value: language === 'fr' ? 'Basé à Rivière-du-Loup, QC' : 'Based in Rivière-du-Loup, QC',
+      value: language === 'fr' ? 'Rivière-du-Loup, QC, Canada' : 'Rivière-du-Loup, QC',
       href: '#',
-      color: 'text-red-600'
+      color: 'text-blue-600'
     }
   ];
 
@@ -89,7 +90,7 @@ const Contact = () => {
       color: 'hover:bg-gray-900'
     },
     {
-      icon: MessageCircle,
+      icon: FaWhatsapp,
       label: 'WhatsApp',
       href: 'https://wa.me/237694983862',
       color: 'hover:bg-green-600'
@@ -160,7 +161,7 @@ const Contact = () => {
                               border border-gray-100 dark:border-blue-500/10
                               shadow-card-light dark:shadow-card-dark">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-100">{language === 'fr' ? 'Mes Coordonnées' : 'My Contact Info'}</h3>
-                
+
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => {
                     const IconComponent = info.icon;
@@ -238,7 +239,7 @@ const Contact = () => {
                               border border-gray-100 dark:border-blue-500/10
                               shadow-card-light dark:shadow-card-dark">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-gray-100">{language === 'fr' ? 'Envoyez-moi un message' : 'Send me a message'}</h3>
-                
+
                 {submitError && (
                   <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 dark:bg-red-900/20 dark:border-red-700">
                     <div className="flex items-center">
@@ -249,7 +250,7 @@ const Contact = () => {
                     </div>
                   </div>
                 )}
-                
+
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -343,7 +344,7 @@ const Contact = () => {
                                 bg-blue-50 dark:bg-blue-900/15
                                 border border-blue-100 dark:border-blue-500/15">
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    <strong>{language === 'fr' ? 'Note :' : 'Note:'}</strong> {language === 'fr' ? 'Vous pouvez aussi me contacter directement par email ou téléphone pour une réponse plus rapide.' : 'You can also contact me directly by email or phone for a faster response.'}
+                    <strong>{language === 'fr' ? 'Note :' : 'Note:'}</strong> {language === 'fr' ? 'Vous pouvez aussi me contacter directement par WhatsApp ou téléphone pour une réponse plus rapide.' : 'You can also contact me directly by email or phone for a faster response.'}
                   </p>
                 </div>
               </div>

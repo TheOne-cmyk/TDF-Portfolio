@@ -30,7 +30,7 @@ export const en = {
     availableForNewProjects: 'Available for new projects',
     typing1: 'Passionate about web development',
     typing2: 'Creator of innovative solutions',
-    typing3: 'Expert in modern technologies',
+    typing3: 'Enthusiast in modern technologies',
     function: 'function',
     create: 'create',
     project: 'Project',
@@ -39,7 +39,7 @@ export const en = {
   },
   about: {
     title: 'About Me',
-    paragraph1: 'As a software engineering specialist, I help businesses with their digital transformation. My approach combines technical rigor and strategic thinking to build tools (SaaS, showcase websites, dashboards) that solve real business needs. Based in Bas-Saint-Laurent, I prioritize proximity and responsiveness for my Québec partners.',
+    paragraph1: 'Passionate about software engineering and digital design, I design custom solutions (SaaS, Showcase websites, Dashboards) that combine technical performance and user experience. My approach is based on constant monitoring and rigor acquired through concrete projects, aiming to transform complex problems into intuitive tools. Based in Quebec, I evolve in a dynamic technological environment that is constantly evolving.',
     paragraph2: '',
     paragraph3: '',
     location: 'Location',
@@ -61,7 +61,7 @@ export const en = {
   },
   skills: {
     title: 'My Skills',
-    subtitle: 'Technologies I master',
+    subtitle: 'Technologies I use',
     years: 'years of experience',
     frontend: 'Frontend',
     backend: 'Backend',
@@ -117,7 +117,7 @@ export const en = {
   },
   projects: {
     title: 'My Projects',
-    subtitle: 'Some of my works',
+    subtitle: 'Some of my achievements',
     viewProject: 'View Project',
     project1: 'E-commerce Application',
     project1Desc: 'Complete e-commerce platform with shopping cart and online payment.',

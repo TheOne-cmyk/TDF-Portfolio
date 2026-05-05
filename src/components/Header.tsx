@@ -41,23 +41,22 @@ const Header = () => {
   const toggleLanguage = () => setLanguage(language === 'fr' ? 'en' : 'fr');
 
   const navItems = [
-    { href: '#apropos',    label: t('header.about') },
-    { href: '#competences',label: t('header.skills') },
-    { href: '#services',   label: t('header.services') },
+    { href: '#apropos', label: t('header.about') },
+    { href: '#competences', label: t('header.skills') },
+    { href: '#services', label: t('header.services') },
     { href: '#formations', label: t('header.education') },
     { href: '#experience', label: t('header.experience') },
-    { href: '#projets',    label: t('header.projects') },
-    { href: '#contact',    label: t('header.contact') },
+    { href: '#projets', label: t('header.projects') },
+    { href: '#contact', label: t('header.contact') },
   ];
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
             ? 'bg-white/80 dark:bg-[#0a0f1c]/80 backdrop-blur-xl shadow-[0_1px_0_0_rgba(99,102,241,0.15)] dark:shadow-[0_1px_0_0_rgba(99,102,241,0.1)]'
             : 'bg-transparent'
-        }`}
+          }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -65,9 +64,9 @@ const Header = () => {
             {/* Logo */}
             <div className="flex-shrink-0">
               <a href="#accueil" className="group flex items-center gap-2">
-                <img 
-                  src="/logo.png" 
-                  alt="Logo TDF Portfolio - Développeur Full-Stack" 
+                <img
+                  src="/logo.png"
+                  alt="Logo TDF Portfolio - Développeur Full-Stack"
                   className="w-11 h-11 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className="font-display font-bold text-gray-900 dark:text-white text-base hidden sm:block tracking-tight">

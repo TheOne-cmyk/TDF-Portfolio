@@ -6,7 +6,7 @@ import { SiJavascript, SiCodecademy } from 'react-icons/si';
 
 const Education = () => {
   const { language } = useTranslation();
-  
+
   const education = language === 'fr' ? [
     {
       degree: 'BTS en Génie Logiciel',
@@ -147,8 +147,8 @@ const Education = () => {
             </h2>
             <div className="section-divider" />
             <p className="section-subtitle mt-4">
-              {language === 'fr' 
-                ? 'Mon parcours académique et les certifications qui ont renforcé mes compétences' 
+              {language === 'fr'
+                ? 'Mon parcours académique et les certifications qui ont renforcé mes compétences'
                 : 'My academic background and the certifications that strengthened my skills'}
             </p>
           </div>
@@ -167,11 +167,11 @@ const Education = () => {
                   {language === 'fr' ? 'Parcours Académique' : 'Academic Background'}
                 </h3>
               </div>
-              
+
               <div className="relative">
                 {/* Timeline */}
                 <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-800/50" />
-                
+
                 <div className="space-y-10">
                   {education.map((item, idx) => {
                     const Icon = item.icon;
@@ -184,7 +184,7 @@ const Education = () => {
                                         shadow-glow-sm">
                           <Icon size={20} className="text-blue-600 dark:text-blue-400" />
                         </div>
-                        
+
                         <div className="rounded-2xl p-6 transition-all duration-300 hover:shadow-card-hover
                                         bg-white dark:bg-[#0f172a]/60 backdrop-blur-sm
                                         border border-gray-100 dark:border-blue-500/10
@@ -197,14 +197,14 @@ const Education = () => {
                               {item.status}
                             </span>
                           </div>
-                          
+
                           <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">{item.institution}</p>
-                          
+
                           <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
                             <Calendar size={16} className="mr-2" />
                             {item.period}
                           </div>
-                          
+
                           <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
                         </div>
                       </div>
@@ -226,12 +226,12 @@ const Education = () => {
                   {language === 'fr' ? 'Certifications' : 'Certifications'}
                 </h3>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {certifications.map((cert, idx) => {
                   const Icon = cert.icon;
                   const PlatformIcon = cert.platformIcon;
-                  
+
                   return (
                     <div key={idx} className="relative group">
                       <div className="relative rounded-xl p-5 h-full transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1
@@ -248,9 +248,9 @@ const Education = () => {
                             {cert.platform}
                           </div>
                         </div>
-                        
+
                         <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{cert.name}</h4>
-                        
+
                         <div className="flex justify-between items-center mt-4">
                           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
                                            bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300
@@ -263,7 +263,7 @@ const Education = () => {
                   );
                 })}
               </div>
-              
+
               <div className="mt-10 rounded-2xl p-6
                               bg-gradient-to-r from-blue-50 to-sky-50
                               dark:from-blue-900/20 dark:to-sky-900/20
@@ -272,8 +272,8 @@ const Education = () => {
                   {language === 'fr' ? 'Apprentissage continu' : 'Continuous learning'}
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-sm">
-                  {language === 'fr' 
-                    ? 'Je continue à me former sur les nouvelles technologies et frameworks modernes.' 
+                  {language === 'fr'
+                    ? 'Je continue à me former sur les nouvelles technologies et frameworks modernes.'
                     : 'I continue to train on new technologies and modern frameworks.'}
                 </p>
               </div>

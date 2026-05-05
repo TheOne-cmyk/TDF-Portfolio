@@ -4,7 +4,7 @@ import { useTypingEffect } from '../hooks/useTypingEffect';
 import { useTranslation } from '../contexts/LanguageContext';
 
 const fadeUp = {
-  hidden:  { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 30 },
   visible: (delay: number) => ({
     opacity: 1, y: 0,
     transition: { duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }
@@ -27,9 +27,9 @@ const Hero = () => {
   ];
 
   const socialLinks = [
-    { href: 'https://github.com/TheOne-cmyk',   icon: Github,   label: 'GitHub' },
+    { href: 'https://github.com/TheOne-cmyk', icon: Github, label: 'GitHub' },
     { href: 'https://linkedin.com/in/warren-tsobgou-21423936', icon: Linkedin, label: 'LinkedIn' },
-    { href: 'https://x.com/',                   icon: Twitter,  label: 'X (Twitter)' },
+    { href: 'https://x.com/', icon: Twitter, label: 'X (Twitter)' },
   ];
 
   const expertiseTags = ['React', 'TypeScript', 'PHP', 'PostgreSQL', 'Tailwind', 'Figma'];

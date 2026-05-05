@@ -3,10 +3,10 @@ import { Code, Heart, Target, Users } from 'lucide-react';
 import { useTranslation } from '../contexts/LanguageContext';
 
 const values = [
-  { icon: Code,   key: 'qualityDev',   gradient: 'from-blue-500 to-indigo-600' },
-  { icon: Heart,  key: 'teamwork',     gradient: 'from-pink-500 to-rose-600' },
-  { icon: Target, key: 'userCentric',  gradient: 'from-orange-500 to-amber-500' },
-  { icon: Users,  key: 'collaboration',gradient: 'from-emerald-500 to-teal-600' },
+  { icon: Code, key: 'qualityDev', gradient: 'from-blue-500 to-indigo-600' },
+  { icon: Heart, key: 'teamwork', gradient: 'from-pink-500 to-rose-600' },
+  { icon: Target, key: 'userCentric', gradient: 'from-orange-500 to-amber-500' },
+  { icon: Users, key: 'collaboration', gradient: 'from-emerald-500 to-teal-600' },
 ];
 
 const About = () => {
@@ -20,10 +20,10 @@ const About = () => {
         style={{ background: 'radial-gradient(ellipse, rgba(99,102,241,0.18) 0%, transparent 70%)' }}
       />
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }} 
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
@@ -114,7 +114,7 @@ const About = () => {
             ))}
           </div>
         </div>
-        </motion.div>
+      </motion.div>
     </section>
   );
 };

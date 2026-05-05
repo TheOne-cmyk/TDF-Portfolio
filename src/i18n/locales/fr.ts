@@ -30,7 +30,7 @@ export const fr = {
     availableForNewProjects: 'Disponible pour de nouveaux projets',
     typing1: 'Passionné par le développement web',
     typing2: 'Créateur de solutions innovantes',
-    typing3: 'Expert en technologies modernes',
+    typing3: 'Amateur en technologies modernes',
     function: 'function',
     create: 'créer',
     project: 'Projet',
@@ -39,7 +39,7 @@ export const fr = {
   },
   about: {
     title: 'À propos de moi',
-    paragraph1: 'Spécialiste en génie logiciel, j\'accompagne les entreprises dans leur transformation numérique. Mon approche combine rigueur technique et vision stratégique pour créer des outils (SaaS, Vitrines, Dashboards) qui répondent à des besoins d\'affaires réels. Installé au Bas-Saint-Laurent, je privilégie la proximité et la réactivité pour mes partenaires québécois.',
+    paragraph1: 'Passionné par l’ingénierie logicielle et le design numérique, je conçois des solutions sur mesure (SaaS, Vitrines, Dashboards) qui allient performance technique et expérience utilisateur. Mon approche repose sur une veille constante et une rigueur acquise au fil de projets concrets, visant à transformer des problématiques complexes en outils intuitifs. Basé au Québec, j\'évolue dans un environnement technologique dynamique et constamMent en évolution',
     paragraph2: '',
     paragraph3: '',
     location: 'Localisation',
@@ -61,7 +61,7 @@ export const fr = {
   },
   skills: {
     title: 'Mes Compétences',
-    subtitle: 'Technologies que je maîtrise',
+    subtitle: 'Technologies que j\'utilise',
     years: 'ans d\'expérience',
     frontend: 'Frontend',
     backend: 'Backend',
